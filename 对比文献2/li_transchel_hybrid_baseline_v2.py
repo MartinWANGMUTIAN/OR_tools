@@ -28,6 +28,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Tuple
@@ -493,8 +494,10 @@ def evaluate_week_static_plan(plan_df: pd.DataFrame, test_week: pd.DataFrame, q_
     listed_demand = 0.0
     full_day_days = 0
     positive_days = 0
+    n_listed = 0
 
     weekly_demand = test_week[sku_cols].sum(axis=0)
+    stockout_flags = []
 
     for sku in sku_cols:
         d = float(weekly_demand.get(sku, 0.0))
@@ -503,6 +506,8 @@ def evaluate_week_static_plan(plan_df: pd.DataFrame, test_week: pd.DataFrame, q_
         fulfilled_total += min(d, q)
         if q > 0:
             listed_demand += d
+            n_listed += 1
+        stockout_flags.append(1.0 if d > q + 1e-9 else 0.0)
 
     remaining = {sku: float(sku_to_q.get(sku, 0.0)) for sku in sku_cols}
     for _, row in test_week.iterrows():
@@ -527,9 +532,71 @@ def evaluate_week_static_plan(plan_df: pd.DataFrame, test_week: pd.DataFrame, q_
         "test_total_demand": demand_total,
         "test_total_fulfilled": fulfilled_total,
         "line_fill_rate": fulfilled_total / demand_total if demand_total > 0 else 0.0,
+        "avg_stockout": float(np.mean(stockout_flags)) if stockout_flags else 0.0,
+        "n_listed": int(n_listed),
         "listed_demand_share": listed_demand / demand_total if demand_total > 0 else 0.0,
         "full_day_fill_proxy": full_day_days / positive_days if positive_days > 0 else 0.0,
     }
+
+
+def extract_standard_plan_records(
+    plan_df: pd.DataFrame,
+    window_id: int,
+    scenario_name: str,
+    algorithm_key: str,
+) -> List[Dict[str, object]]:
+    records: List[Dict[str, object]] = []
+    for _, row in plan_df.iterrows():
+        q = int(row["q_hybrid_v2"])
+        if q > 0:
+            records.append(
+                {
+                    "window": window_id,
+                    "scenario": scenario_name,
+                    "algorithm": algorithm_key,
+                    "sku": row["SKU"],
+                    "stock_qty": q,
+                }
+            )
+    return records
+
+
+def summarize_standard_results(df: pd.DataFrame, scenario_name: str, method_name: str) -> pd.DataFrame:
+    if df.empty:
+        return pd.DataFrame(
+            columns=[
+                "scenario",
+                "method",
+                "lfr_mean",
+                "lfr_std",
+                "stockout_mean",
+                "stockout_std",
+                "time_mean",
+                "n_listed_mean",
+                "n_windows",
+            ]
+        )
+
+    lfr_col = f"{method_name}_lfr"
+    stockout_col = f"{method_name}_stockout"
+    time_col = f"{method_name}_time"
+    n_listed_col = f"{method_name}_n_listed"
+
+    return pd.DataFrame(
+        [
+            {
+                "scenario": scenario_name,
+                "method": method_name,
+                "lfr_mean": float(df[lfr_col].mean()),
+                "lfr_std": float(df[lfr_col].std(ddof=1)) if len(df) > 1 else 0.0,
+                "stockout_mean": float(df[stockout_col].mean()),
+                "stockout_std": float(df[stockout_col].std(ddof=1)) if len(df) > 1 else 0.0,
+                "time_mean": float(df[time_col].mean()),
+                "n_listed_mean": float(df[n_listed_col].mean()),
+                "n_windows": int(len(df)),
+            }
+        ]
+    )
 
 
 # -----------------------------
@@ -539,6 +606,8 @@ def run_rolling_experiment(
     sku_params: pd.DataFrame,
     daily_demand: pd.DataFrame,
     output_dir: Path,
+    scenario_name: str = "baseline",
+    method_name: str = "hybrid_v2",
     top_n: int = 200,
     k_sku: int = 120,
     train_weeks: int = 8,
@@ -561,20 +630,31 @@ def run_rolling_experiment(
     total_days = len(daily_demand)
     train_len = train_weeks * 7
     test_len = test_weeks * 7
+    n_windows = max(0, (total_days - train_len - test_len) // test_len + 1)
+
+    print(
+        f"[Hybrid v2] scenario={scenario_name}, method={method_name}, "
+        f"top_n={top_n}, k_sku={k_sku}, windows={n_windows}, local_iters={local_iters}",
+        flush=True,
+    )
 
     plan_frames = []
     metric_rows = []
     sub_frames = []
+    rolling_rows = []
+    standard_plan_rows = []
 
     start = 0
     wid = 0
     while start + train_len + test_len <= total_days:
+        print(f"[Window {wid + 1}/{n_windows}] start", flush=True)
         train_df = daily_demand.iloc[start:start + train_len].copy()
         test_df = daily_demand.iloc[start + train_len:start + train_len + test_len].copy()
 
         scored = compute_mci_scores(train_df, sku_params)
         selected = select_assortment_mci(scored, min(k_sku, len(scored)))
 
+        t0 = time.time()
         plan, S = transchel_like_allocate_inventory_v2(
             selected_df=selected,
             horizon_days=horizon_days,
@@ -586,6 +666,7 @@ def run_rolling_experiment(
             base_sub_strength=base_sub_strength,
             local_iters=local_iters,
         )
+        elapsed = time.time() - t0
 
         eval_metrics = evaluate_week_static_plan(plan, test_df, q_col="q_hybrid_v2")
 
@@ -595,6 +676,14 @@ def run_rolling_experiment(
         plan["test_start"] = test_df["Date"].min()
         plan["test_end"] = test_df["Date"].max()
         plan_frames.append(plan)
+        standard_plan_rows.extend(
+            extract_standard_plan_records(
+                plan_df=plan,
+                window_id=wid,
+                scenario_name=scenario_name,
+                algorithm_key=method_name,
+            )
+        )
 
         if not S.empty:
             sub_long = S.stack().reset_index()
@@ -604,6 +693,8 @@ def run_rolling_experiment(
 
         metric_rows.append({
             "window_id": wid,
+            "scenario": scenario_name,
+            "method": method_name,
             "train_start": str(train_df["Date"].min().date()),
             "train_end": str(train_df["Date"].max().date()),
             "test_start": str(test_df["Date"].min().date()),
@@ -614,8 +705,27 @@ def run_rolling_experiment(
             "used_weight": float(plan.attrs["used_w"]),
             "expected_profit_horizon": float(plan.attrs["total_profit"]),
             "expected_sales_horizon": float(plan.attrs["total_exp_sales"]),
+            "runtime_sec": float(elapsed),
             **eval_metrics,
         })
+        rolling_rows.append(
+            {
+                "window": wid,
+                "scenario": scenario_name,
+                f"{method_name}_lfr": float(eval_metrics["line_fill_rate"]),
+                f"{method_name}_stockout": float(eval_metrics["avg_stockout"]),
+                f"{method_name}_time": float(elapsed),
+                f"{method_name}_n_listed": int(eval_metrics["n_listed"]),
+            }
+        )
+
+        print(
+            f"[Window {wid + 1}/{n_windows}] done "
+            f"lfr={eval_metrics['line_fill_rate']:.4f}, "
+            f"stockout={eval_metrics['avg_stockout']:.4f}, "
+            f"time={elapsed:.2f}s",
+            flush=True,
+        )
 
         start += test_len
         wid += 1
@@ -623,6 +733,9 @@ def run_rolling_experiment(
     plans_df = pd.concat(plan_frames, ignore_index=True) if plan_frames else pd.DataFrame()
     metrics_df = pd.DataFrame(metric_rows)
     sub_df = pd.concat(sub_frames, ignore_index=True) if sub_frames else pd.DataFrame()
+    rolling_df = pd.DataFrame(rolling_rows)
+    standard_plans_df = pd.DataFrame(standard_plan_rows)
+    standard_summary_df = summarize_standard_results(rolling_df, scenario_name, method_name)
 
     summary = {}
     if not metrics_df.empty:
@@ -632,12 +745,17 @@ def run_rolling_experiment(
             "full_day_fill_proxy",
             "expected_profit_horizon",
             "expected_sales_horizon",
+            "avg_stockout",
             "n_stocked_positive_q",
             "used_volume",
             "used_weight",
+            "runtime_sec",
         ]:
             summary[f"avg_{col}"] = float(metrics_df[col].mean())
 
+    rolling_df.to_csv(output_dir / "rolling_results.csv", index=False)
+    standard_plans_df.to_csv(output_dir / "plans.csv", index=False)
+    standard_summary_df.to_csv(output_dir / "summary.csv", index=False)
     plans_df.to_csv(output_dir / "hybrid_v2_plans_by_window.csv", index=False)
     metrics_df.to_csv(output_dir / "hybrid_v2_window_metrics.csv", index=False)
     sub_df.to_csv(output_dir / "hybrid_v2_substitution_matrix_long.csv", index=False)
@@ -651,6 +769,10 @@ def run_rolling_experiment(
     with open(output_dir / "hybrid_v2_summary.json", "w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
 
+    print(f"[Hybrid v2] finished. Results saved to: {output_dir}", flush=True)
+
+    return rolling_df, standard_plans_df, standard_summary_df, metrics_df, plans_df, sub_df
+
 
 # -----------------------------
 # CLI
@@ -660,6 +782,8 @@ def parse_args():
     p.add_argument("--sku_params", type=str, default=str(DEFAULT_DATA_DIR / "sku_params.csv"))
     p.add_argument("--daily_demand", type=str, default=str(DEFAULT_DATA_DIR / "daily_demand.csv"))
     p.add_argument("--output_dir", type=str, default=str(DEFAULT_OUTPUT_DIR))
+    p.add_argument("--scenario_name", type=str, default="baseline")
+    p.add_argument("--method_name", type=str, default="hybrid_v2")
     p.add_argument("--top_n", type=int, default=200)
     p.add_argument("--k_sku", type=int, default=120)
     p.add_argument("--train_weeks", type=int, default=8)
@@ -682,6 +806,8 @@ def main():
         sku_params=sku_params,
         daily_demand=daily_demand,
         output_dir=Path(args.output_dir),
+        scenario_name=args.scenario_name,
+        method_name=args.method_name,
         top_n=args.top_n,
         k_sku=args.k_sku,
         train_weeks=args.train_weeks,
