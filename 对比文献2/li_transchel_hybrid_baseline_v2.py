@@ -309,7 +309,7 @@ def transchel_like_allocate_inventory_v2(
     lambda_price: float = 2.0,
     lambda_quality: float = 1.0,
     base_sub_strength: float = 0.35,
-    local_iters: int = 400,
+    local_iters: int = 10,
 ) -> Tuple[pd.DataFrame, pd.DataFrame]:
     """
     Upgraded Stage B:
@@ -322,20 +322,41 @@ def transchel_like_allocate_inventory_v2(
     if df.empty:
         return pd.DataFrame(), pd.DataFrame()
 
-    # prep stats
-    mu_map: Dict[str, float] = {}
-    spec_map: Dict[str, DistSpec] = {}
-    seed_q: Dict[str, int] = {}
-    sku_list = df["SKU"].tolist()
+    print(
+        f"  [Stage B] selected={len(df)}, q_max={q_max}, local_iters={local_iters}",
+        flush=True,
+    )
 
-    for _, row in df.iterrows():
-        sku = row["SKU"]
+    sku_list = df["SKU"].tolist()
+    n = len(sku_list)
+
+    v_arr = df["v_i"].astype(float).to_numpy()
+    w_arr = df["w_i"].astype(float).to_numpy()
+    u_arr = df["u_i"].astype(float).to_numpy()
+    h_arr = df["h_i"].astype(float).to_numpy()
+    b_arr = df["b_i"].astype(float).to_numpy()
+    f_arr = df["f_i"].astype(float).to_numpy()
+    price_arr = df["avg_price"].astype(float).to_numpy()
+    profit_arr = (
+        df["avg_profit"].fillna(0.0).astype(float).to_numpy()
+        if "avg_profit" in df.columns
+        else np.zeros(n, dtype=float)
+    )
+    presence_arr = df["presence_prob"].astype(float).to_numpy()
+    train_mu_daily_arr = df["train_mu_daily"].astype(float).to_numpy()
+
+    # prep stats
+    mu_arr = np.zeros(n, dtype=float)
+    spec_list: List[DistSpec] = []
+    q_seed_arr = np.zeros(n, dtype=int)
+
+    for idx, row in df.iterrows():
         mu_h = get_train_mu_for_horizon(float(row["train_mu_daily"]), horizon_days)
-        mu_map[sku] = mu_h
+        mu_arr[idx] = mu_h
         spec = build_dist_spec(row, mu_h)
-        spec_map[sku] = spec
+        spec_list.append(spec)
         alpha = critical_ratio(float(row["u_i"]), float(row["h_i"]), float(row["b_i"]))
-        seed_q[sku] = min(q_max, demand_ppf(spec, alpha))
+        q_seed_arr[idx] = min(q_max, demand_ppf(spec, alpha))
 
     # build substitution matrix
     S = build_substitution_matrix(
@@ -344,77 +365,146 @@ def transchel_like_allocate_inventory_v2(
         lambda_quality=lambda_quality,
         base_strength=base_sub_strength,
     )
+    S_arr = S.to_numpy(dtype=float) if not S.empty else np.zeros((n, n), dtype=float)
 
     # initial q
-    q_map = {sku: int(seed_q[sku]) for sku in sku_list}
+    q_arr = q_seed_arr.copy()
 
-    def total_capacity(qm: Dict[str, int]) -> Tuple[float, float]:
-        used_v = 0.0
-        used_w = 0.0
-        for _, row in df.iterrows():
-            sku = row["SKU"]
-            q = int(qm.get(sku, 0))
-            used_v += float(row["v_i"]) * q
-            used_w += float(row["w_i"]) * q
-        return used_v, used_w
+    def q_arr_to_map(qm: np.ndarray) -> Dict[str, int]:
+        return {sku: int(qm[idx]) for idx, sku in enumerate(sku_list)}
 
-    def score_remove_one(sku: str, sold_map: Dict[str, float]) -> float:
-        row = df.loc[df["SKU"] == sku].iloc[0]
-        q = int(q_map[sku])
+    def sold_arr_to_map(sold: np.ndarray) -> Dict[str, float]:
+        return {sku: float(sold[idx]) for idx, sku in enumerate(sku_list)}
+
+    def total_capacity(qm: np.ndarray) -> Tuple[float, float]:
+        return float(np.dot(v_arr, qm)), float(np.dot(w_arr, qm))
+
+    def expected_sales_with_substitution_arr(qm: np.ndarray, iterations: int = 3) -> np.ndarray:
+        eff_mu = mu_arr.copy()
+        sold = np.zeros(n, dtype=float)
+        for _ in range(iterations):
+            sold = np.array(
+                [
+                    expected_min(DistSpec(spec.kind, float(eff_mu[idx]), spec.r), int(qm[idx]))
+                    for idx, spec in enumerate(spec_list)
+                ],
+                dtype=float,
+            )
+            unmet = np.maximum(eff_mu - sold, 0.0)
+            eff_mu = mu_arr + unmet @ S_arr
+        return sold
+
+    def compute_plan_profit_arr(qm: np.ndarray, sold: np.ndarray) -> float:
+        total = (u_arr + h_arr + b_arr) * sold - h_arr * qm - b_arr * mu_arr - f_arr
+        total = np.where(qm > 0, total, 0.0)
+        return float(total.sum())
+
+    def score_remove_one(idx: int, sold: np.ndarray, qm: np.ndarray) -> float:
+        q = int(qm[idx])
         if q <= 0:
             return -1e18
-        cur = sku_profit_value(float(row["u_i"]), float(row["h_i"]), float(row["b_i"]), float(row["f_i"]), mu_map[sku], sold_map[sku], q)
+        cur = sku_profit_value(u_arr[idx], h_arr[idx], b_arr[idx], f_arr[idx], mu_arr[idx], sold[idx], q)
         # rough local approximation by reducing one unit and recomputing own sales only
-        spec = spec_map[sku]
-        sold_minus = expected_min(DistSpec(spec.kind, mu_map[sku], spec.r), q - 1)
-        new = sku_profit_value(float(row["u_i"]), float(row["h_i"]), float(row["b_i"]), float(row["f_i"]), mu_map[sku], sold_minus, q - 1)
-        v = max(1e-9, float(row["v_i"]))
-        w = max(1e-9, float(row["w_i"]))
+        spec = spec_list[idx]
+        sold_minus = expected_min(DistSpec(spec.kind, mu_arr[idx], spec.r), q - 1)
+        new = sku_profit_value(u_arr[idx], h_arr[idx], b_arr[idx], f_arr[idx], mu_arr[idx], sold_minus, q - 1)
+        v = max(1e-9, v_arr[idx])
+        w = max(1e-9, w_arr[idx])
         return (cur - new) / (v / max(v_cap, 1e-9) + w / max(w_cap, 1e-9))
 
+    def score_add_one(idx: int, sold: np.ndarray, qm: np.ndarray) -> float:
+        q = int(qm[idx])
+        if q >= q_max:
+            return -1e18
+        spec = spec_list[idx]
+        cur = sku_profit_value(u_arr[idx], h_arr[idx], b_arr[idx], f_arr[idx], mu_arr[idx], sold[idx], q)
+        sold_plus = expected_min(DistSpec(spec.kind, mu_arr[idx], spec.r), q + 1)
+        new = sku_profit_value(u_arr[idx], h_arr[idx], b_arr[idx], f_arr[idx], mu_arr[idx], sold_plus, q + 1)
+        v = max(1e-9, v_arr[idx])
+        w = max(1e-9, w_arr[idx])
+        return (new - cur) / (v / max(v_cap, 1e-9) + w / max(w_cap, 1e-9))
+
     # repair to capacity by removing low value-density units
-    sold_map = expected_sales_with_substitution(sku_list, q_map, mu_map, spec_map, S)
-    used_v, used_w = total_capacity(q_map)
+    used_v, used_w = total_capacity(q_arr)
+    if used_v > v_cap + 1e-9 or used_w > w_cap + 1e-9:
+        scale = min(
+            v_cap / max(used_v, 1e-9),
+            w_cap / max(used_w, 1e-9),
+            1.0,
+        )
+        q_arr = np.floor(q_arr * scale).astype(int)
+        print(
+            f"  [Stage B] scaled seed inventory by {scale:.4f} before fine repair",
+            flush=True,
+        )
+
+    sold_arr = expected_sales_with_substitution_arr(q_arr)
+    used_v, used_w = total_capacity(q_arr)
+    repair_steps = 0
     while used_v > v_cap + 1e-9 or used_w > w_cap + 1e-9:
-        candidates = [(score_remove_one(sku, sold_map), sku) for sku in sku_list if q_map[sku] > 0]
+        candidates = [(score_remove_one(idx, sold_arr, q_arr), idx) for idx in range(n) if q_arr[idx] > 0]
         if not candidates:
             break
-        _, worst_sku = min(candidates, key=lambda x: x[0])
-        q_map[worst_sku] -= 1
-        sold_map = expected_sales_with_substitution(sku_list, q_map, mu_map, spec_map, S)
-        used_v, used_w = total_capacity(q_map)
+        _, worst_idx = min(candidates, key=lambda x: x[0])
+        q_arr[worst_idx] -= 1
+        sold_arr = expected_sales_with_substitution_arr(q_arr)
+        used_v, used_w = total_capacity(q_arr)
+        repair_steps += 1
+
+    print(
+        f"  [Stage B] repair done steps={repair_steps}, used_v={used_v:.2f}, used_w={used_w:.2f}",
+        flush=True,
+    )
 
     # local search: try +1 or -1,+1 swaps
-    best_sold = expected_sales_with_substitution(sku_list, q_map, mu_map, spec_map, S)
-    best_profit = compute_plan_profit(df, q_map, best_sold, mu_map)
-    best_q = dict(q_map)
+    best_sold_arr = expected_sales_with_substitution_arr(q_arr)
+    best_profit = compute_plan_profit_arr(q_arr, best_sold_arr)
+    best_q_arr = q_arr.copy()
+    add_pool_size = min(8, n)
+    swap_pool_size = min(6, n)
+    print(
+        f"  [Stage B] local search start add_pool={add_pool_size}, swap_pool={swap_pool_size}",
+        flush=True,
+    )
 
-    for _ in range(local_iters):
+    completed_iters = 0
+    for it in range(local_iters):
+        completed_iters = it + 1
         improved = False
-        used_v, used_w = total_capacity(best_q)
+        used_v, used_w = total_capacity(best_q_arr)
+
+        if it > 0 and it % 10 == 0:
+            print(
+                f"  [Stage B] local search progress iter={it}/{local_iters}, profit={best_profit:.2f}",
+                flush=True,
+            )
 
         # single-add moves
         add_candidates = []
-        for _, row in df.iterrows():
-            sku = row["SKU"]
-            q = int(best_q[sku])
+        add_order = sorted(
+            range(n),
+            key=lambda idx: score_add_one(idx, best_sold_arr, best_q_arr),
+            reverse=True,
+        )
+        for idx in add_order[:add_pool_size]:
+            q = int(best_q_arr[idx])
             if q >= q_max:
                 continue
-            new_v = used_v + float(row["v_i"])
-            new_w = used_w + float(row["w_i"])
+            new_v = used_v + v_arr[idx]
+            new_w = used_w + w_arr[idx]
             if new_v <= v_cap + 1e-9 and new_w <= w_cap + 1e-9:
-                trial_q = dict(best_q)
-                trial_q[sku] += 1
-                trial_sold = expected_sales_with_substitution(sku_list, trial_q, mu_map, spec_map, S)
-                trial_profit = compute_plan_profit(df, trial_q, trial_sold, mu_map)
+                trial_q = best_q_arr.copy()
+                trial_q[idx] += 1
+                trial_sold = expected_sales_with_substitution_arr(trial_q)
+                trial_profit = compute_plan_profit_arr(trial_q, trial_sold)
                 add_candidates.append((trial_profit, trial_q, trial_sold))
 
         if add_candidates:
             trial_profit, trial_q, trial_sold = max(add_candidates, key=lambda x: x[0])
             if trial_profit > best_profit + 1e-8:
                 best_profit = trial_profit
-                best_q = trial_q
-                best_sold = trial_sold
+                best_q_arr = trial_q
+                best_sold_arr = trial_sold
                 improved = True
 
         if improved:
@@ -422,62 +512,67 @@ def transchel_like_allocate_inventory_v2(
 
         # swap moves: remove one unit from a SKU and add one to another
         swap_best = None
-        for sku_out in sku_list:
-            if best_q[sku_out] <= 0:
+        remove_order = sorted(range(n), key=lambda idx: score_remove_one(idx, best_sold_arr, best_q_arr))
+        add_order = sorted(range(n), key=lambda idx: score_add_one(idx, best_sold_arr, best_q_arr), reverse=True)
+        for idx_out in remove_order[:swap_pool_size]:
+            if best_q_arr[idx_out] <= 0:
                 continue
-            row_out = df.loc[df["SKU"] == sku_out].iloc[0]
-            for sku_in in sku_list:
-                if sku_in == sku_out or best_q[sku_in] >= q_max:
+            for idx_in in add_order[:swap_pool_size]:
+                if idx_in == idx_out or best_q_arr[idx_in] >= q_max:
                     continue
-                row_in = df.loc[df["SKU"] == sku_in].iloc[0]
-                new_v = used_v - float(row_out["v_i"]) + float(row_in["v_i"])
-                new_w = used_w - float(row_out["w_i"]) + float(row_in["w_i"])
+                new_v = used_v - v_arr[idx_out] + v_arr[idx_in]
+                new_w = used_w - w_arr[idx_out] + w_arr[idx_in]
                 if new_v <= v_cap + 1e-9 and new_w <= w_cap + 1e-9:
-                    trial_q = dict(best_q)
-                    trial_q[sku_out] -= 1
-                    trial_q[sku_in] += 1
-                    trial_sold = expected_sales_with_substitution(sku_list, trial_q, mu_map, spec_map, S)
-                    trial_profit = compute_plan_profit(df, trial_q, trial_sold, mu_map)
+                    trial_q = best_q_arr.copy()
+                    trial_q[idx_out] -= 1
+                    trial_q[idx_in] += 1
+                    trial_sold = expected_sales_with_substitution_arr(trial_q)
+                    trial_profit = compute_plan_profit_arr(trial_q, trial_sold)
                     if (swap_best is None) or (trial_profit > swap_best[0]):
                         swap_best = (trial_profit, trial_q, trial_sold)
 
         if swap_best and swap_best[0] > best_profit + 1e-8:
             best_profit = swap_best[0]
-            best_q = swap_best[1]
-            best_sold = swap_best[2]
+            best_q_arr = swap_best[1]
+            best_sold_arr = swap_best[2]
             improved = True
 
         if not improved:
             break
 
-    used_v, used_w = total_capacity(best_q)
+    print(
+        f"  [Stage B] local search done iters={completed_iters}, profit={best_profit:.2f}",
+        flush=True,
+    )
+
+    used_v, used_w = total_capacity(best_q_arr)
 
     rows = []
-    for _, row in df.iterrows():
+    for idx, row in df.iterrows():
         sku = row["SKU"]
-        q = int(best_q[sku])
+        q = int(best_q_arr[idx])
         rows.append({
             "SKU": sku,
             "q_hybrid_v2": q,
-            "expected_sales_horizon_subaware": float(best_sold[sku]),
-            "mu_horizon": float(mu_map[sku]),
-            "presence_prob": float(row["presence_prob"]),
-            "train_mu_daily": float(row["train_mu_daily"]),
-            "quality_proxy_avg_price": float(row["avg_price"]),
-            "avg_profit": float(row.get("avg_profit", 0.0)),
-            "v_i": float(row["v_i"]),
-            "w_i": float(row["w_i"]),
-            "u_i": float(row["u_i"]),
-            "h_i": float(row["h_i"]),
-            "b_i": float(row["b_i"]),
-            "f_i": float(row["f_i"]),
+            "expected_sales_horizon_subaware": float(best_sold_arr[idx]),
+            "mu_horizon": float(mu_arr[idx]),
+            "presence_prob": float(presence_arr[idx]),
+            "train_mu_daily": float(train_mu_daily_arr[idx]),
+            "quality_proxy_avg_price": float(price_arr[idx]),
+            "avg_profit": float(profit_arr[idx]),
+            "v_i": float(v_arr[idx]),
+            "w_i": float(w_arr[idx]),
+            "u_i": float(u_arr[idx]),
+            "h_i": float(h_arr[idx]),
+            "b_i": float(b_arr[idx]),
+            "f_i": float(f_arr[idx]),
         })
 
     out = pd.DataFrame(rows)
     out.attrs["used_v"] = used_v
     out.attrs["used_w"] = used_w
     out.attrs["total_profit"] = best_profit
-    out.attrs["total_exp_sales"] = float(sum(best_sold.values()))
+    out.attrs["total_exp_sales"] = float(best_sold_arr.sum())
     out.attrs["n_listed"] = int((out["q_hybrid_v2"] > 0).sum())
     return out, S
 
@@ -619,7 +714,7 @@ def run_rolling_experiment(
     lambda_price: float = 2.0,
     lambda_quality: float = 1.0,
     base_sub_strength: float = 0.35,
-    local_iters: int = 400,
+    local_iters: int = 10,
 ) -> None:
     ensure_dir(output_dir)
 
@@ -795,7 +890,7 @@ def parse_args():
     p.add_argument("--lambda_price", type=float, default=2.0)
     p.add_argument("--lambda_quality", type=float, default=1.0)
     p.add_argument("--base_sub_strength", type=float, default=0.35)
-    p.add_argument("--local_iters", type=int, default=400)
+    p.add_argument("--local_iters", type=int, default=10)
     return p.parse_args()
 
 

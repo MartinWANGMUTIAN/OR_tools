@@ -1,0 +1,2 @@
+scenario,method,lfr_mean,lfr_std,stockout_mean,stockout_std,time_mean,n_listed_mean,n_windows
+baseline,hybrid_v2,0.3570549033241048,0.043159362667297425,0.7913636363636365,0.07417267437323968,13.37768924778158,120.0,44
