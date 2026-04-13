@@ -50,4 +50,8 @@ OR_tools/
 
 ## Compatibility
 
-Legacy folders such as `对比文献2`, `整单结果`, `部分履约结果`, and the old `dark store scanner data/...` tree are kept as compatibility entry points via symlinks. Existing bookmarks and scripts should continue to resolve, but new work should use the paths under `src/`, `data/`, `analysis/`, and `results/`.
+Legacy folders are now reduced to lightweight pointers only.
+
+- Generated outputs are kept only under `results/`
+- Source files are kept only under `src/`
+- Legacy folders such as `对比文献2`, `整单结果`, and `部分履约结果` now contain notes or old entry points, not duplicated result files
