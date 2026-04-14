@@ -41,6 +41,8 @@ from scipy.stats import nbinom, poisson
 ROOT_DIR = next(p for p in Path(__file__).resolve().parents if (p / ".git").exists())
 DEFAULT_DATA_DIR = ROOT_DIR / "data" / "processed"
 DEFAULT_OUTPUT_DIR = ROOT_DIR / "results" / "literature" / "hybrid_v2"
+SLOT_V_COST = 2.0
+SLOT_W_COST = 0.5
 
 
 # -----------------------------
@@ -102,6 +104,42 @@ def sku_profit_value(u_i: float, h_i: float, b_i: float, f_i: float, mu: float, 
 
 def get_train_mu_for_horizon(mu_daily: float, horizon_days: int) -> float:
     return max(0.0, float(mu_daily) * float(horizon_days))
+
+
+def total_capacity_with_slots(
+    q_arr: np.ndarray,
+    v_arr: np.ndarray,
+    w_arr: np.ndarray,
+    slot_v_cost: float = SLOT_V_COST,
+    slot_w_cost: float = SLOT_W_COST,
+) -> Tuple[float, float]:
+    listed = (q_arr > 0).astype(float)
+    used_v = float(np.dot(v_arr, q_arr) + slot_v_cost * listed.sum())
+    used_w = float(np.dot(w_arr, q_arr) + slot_w_cost * listed.sum())
+    return used_v, used_w
+
+
+def marginal_capacity_delta(
+    current_q: int,
+    delta_q: int,
+    unit_v: float,
+    unit_w: float,
+    slot_v_cost: float = SLOT_V_COST,
+    slot_w_cost: float = SLOT_W_COST,
+) -> Tuple[float, float]:
+    new_q = current_q + delta_q
+    if new_q < 0:
+        raise ValueError("inventory cannot become negative")
+
+    slot_delta = 0.0
+    if current_q <= 0 < new_q:
+        slot_delta = 1.0
+    elif current_q > 0 and new_q <= 0:
+        slot_delta = -1.0
+
+    delta_v = float(unit_v * delta_q + slot_v_cost * slot_delta)
+    delta_w = float(unit_w * delta_q + slot_w_cost * slot_delta)
+    return delta_v, delta_w
 
 
 # -----------------------------
@@ -377,7 +415,7 @@ def transchel_like_allocate_inventory_v2(
         return {sku: float(sold[idx]) for idx, sku in enumerate(sku_list)}
 
     def total_capacity(qm: np.ndarray) -> Tuple[float, float]:
-        return float(np.dot(v_arr, qm)), float(np.dot(w_arr, qm))
+        return total_capacity_with_slots(qm, v_arr, w_arr)
 
     def expected_sales_with_substitution_arr(qm: np.ndarray, iterations: int = 3) -> np.ndarray:
         eff_mu = mu_arr.copy()
@@ -490,8 +528,14 @@ def transchel_like_allocate_inventory_v2(
             q = int(best_q_arr[idx])
             if q >= q_max:
                 continue
-            new_v = used_v + v_arr[idx]
-            new_w = used_w + w_arr[idx]
+            delta_v, delta_w = marginal_capacity_delta(
+                current_q=q,
+                delta_q=1,
+                unit_v=v_arr[idx],
+                unit_w=w_arr[idx],
+            )
+            new_v = used_v + delta_v
+            new_w = used_w + delta_w
             if new_v <= v_cap + 1e-9 and new_w <= w_cap + 1e-9:
                 trial_q = best_q_arr.copy()
                 trial_q[idx] += 1
@@ -520,8 +564,20 @@ def transchel_like_allocate_inventory_v2(
             for idx_in in add_order[:swap_pool_size]:
                 if idx_in == idx_out or best_q_arr[idx_in] >= q_max:
                     continue
-                new_v = used_v - v_arr[idx_out] + v_arr[idx_in]
-                new_w = used_w - w_arr[idx_out] + w_arr[idx_in]
+                delta_v_out, delta_w_out = marginal_capacity_delta(
+                    current_q=int(best_q_arr[idx_out]),
+                    delta_q=-1,
+                    unit_v=v_arr[idx_out],
+                    unit_w=w_arr[idx_out],
+                )
+                delta_v_in, delta_w_in = marginal_capacity_delta(
+                    current_q=int(best_q_arr[idx_in]),
+                    delta_q=1,
+                    unit_v=v_arr[idx_in],
+                    unit_w=w_arr[idx_in],
+                )
+                new_v = used_v + delta_v_out + delta_v_in
+                new_w = used_w + delta_w_out + delta_w_in
                 if new_v <= v_cap + 1e-9 and new_w <= w_cap + 1e-9:
                     trial_q = best_q_arr.copy()
                     trial_q[idx_out] -= 1

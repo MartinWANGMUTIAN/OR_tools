@@ -115,6 +115,7 @@ def load_main_metrics(rolling_file: Path, scenario: str) -> pd.DataFrame:
                 "scenario": scenario,
                 "algorithm": algorithm,
                 "aggregated_lfr": float(row[lfr_col]),
+                "aggregated_lfr_basis": "expected_analytic",
                 "runtime_sec": float(row[time_col]),
             })
     return pd.DataFrame(rows)
@@ -129,7 +130,10 @@ def load_hybrid_metrics(rolling_file: Path, scenario: str) -> pd.DataFrame:
     return rolling.rename(columns={
         "hybrid_v2_lfr": "aggregated_lfr",
         "hybrid_v2_time": "runtime_sec",
-    })[["window", "scenario", "aggregated_lfr", "runtime_sec"]].assign(algorithm=HYBRID_METHOD)
+    })[["window", "scenario", "aggregated_lfr", "runtime_sec"]].assign(
+        algorithm=HYBRID_METHOD,
+        aggregated_lfr_basis="realized_test_week",
+    )
 
 
 def simulate_one_plan(order_lines_test: pd.DataFrame, plan_df: pd.DataFrame, whole_order: bool) -> dict:
@@ -234,6 +238,10 @@ def run_basket_simulation(
         how="left",
     )
     basket_window["proxy_gap_lfr"] = basket_window["aggregated_lfr"] - basket_window["basket_lfr"]
+    basket_window["proxy_gap_note"] = (
+        "aggregated_lfr is only comparable within the same basis; "
+        "main methods use expected_analytic and hybrid_v2 uses realized_test_week."
+    )
 
     basket_summary = (
         basket_window.groupby(["scenario", "algorithm"], as_index=False)
@@ -247,6 +255,7 @@ def run_basket_simulation(
             n_windows=("window", "count"),
             avg_orders=("n_orders", "mean"),
             avg_lines=("n_lines", "mean"),
+            aggregated_lfr_basis=("aggregated_lfr_basis", "first"),
         )
         .sort_values(["scenario", "basket_lfr_mean"], ascending=[True, False])
         .reset_index(drop=True)

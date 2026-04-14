@@ -164,7 +164,7 @@ def simulate_one_plan(order_lines_test: pd.DataFrame,
     # 按订单顺序回放
     order_lines_test = order_lines_test.sort_values(["date", "order_id", "sku"]).copy()
 
-    for order_id, grp in order_lines_test.groupby("order_id", sort=True):
+    for order_id, grp in order_lines_test.groupby("order_id", sort=False):
         total_orders += 1
         order_full = True
 

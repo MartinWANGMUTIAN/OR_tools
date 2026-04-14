@@ -1,12 +1,12 @@
 {
-  "avg_line_fill_rate": 0.3570549033241048,
-  "avg_listed_demand_share": 0.7104475958623901,
+  "avg_line_fill_rate": 0.2851841796201435,
+  "avg_listed_demand_share": 0.6368373120763146,
   "avg_full_day_fill_proxy": 0.0,
-  "avg_expected_profit_horizon": 214.96620008480852,
-  "avg_expected_sales_horizon": 462.2300712878924,
-  "avg_avg_stockout": 0.7913636363636365,
-  "avg_n_stocked_positive_q": 120.0,
-  "avg_used_volume": 743.0643181818182,
-  "avg_used_weight": 186.23909090909092,
-  "avg_runtime_sec": 13.37768924778158
+  "avg_expected_profit_horizon": -51.976373619478,
+  "avg_expected_sales_horizon": 371.8096718139287,
+  "avg_avg_stockout": 0.834659090909091,
+  "avg_n_stocked_positive_q": 105.36363636363636,
+  "avg_used_volume": 799.5145454545454,
+  "avg_used_weight": 201.20818181818183,
+  "avg_runtime_sec": 13.046440335837277
 }
