@@ -33,6 +33,7 @@ OR_tools/
 - Main optimizer: `src/main_optimizer/dark_store_optimizer_with_plans.py`
 - Whole-order basket replay: `src/evaluation/basket_simulation_whole.py`
 - Partial-order basket replay: `src/evaluation/basket_simulation_partial.py`
+- Evaluation runner: `scripts/run_evaluation_outputs.py`
 - Literature baseline: `src/literature/li_transchel_hybrid_baseline_v2.py`
 - Benchmark vs literature baseline: `src/literature/benchmark_vs_hybrid_v2.py`
 - Data prep and EDA: `analysis/data_prep/dark_store_data_prep.py`
@@ -46,7 +47,16 @@ OR_tools/
 
 - Main optimizer outputs: `results/main_optimizer/`
 - Basket replay outputs: `results/evaluation/`
+  - Whole-order replay: `results/evaluation/whole_order/basket_window_results.csv`, `basket_summary.csv`, `basket_proxy_gap.csv`
+  - Partial-order replay: `results/evaluation/partial_order/basket_window_results.csv`, `basket_summary.csv`, `basket_proxy_gap.csv`
 - Literature baseline and benchmark outputs: `results/literature/`
+
+## Common Runs
+
+- Generate main optimizer results: `python src/main_optimizer/dark_store_optimizer_with_plans.py`
+- Generate standalone basket replay outputs: `python scripts/run_evaluation_outputs.py`
+- Generate literature hybrid baseline: `python src/literature/li_transchel_hybrid_baseline_v2.py`
+- Generate benchmark comparison on shared windows: `python src/literature/benchmark_vs_hybrid_v2.py`
 
 ## Compatibility
 
@@ -54,4 +64,5 @@ Legacy folders are now reduced to lightweight pointers only.
 
 - Generated outputs are kept only under `results/`
 - Source files are kept only under `src/`
+- Evaluation outputs use the unified `basket_*.csv` naming convention under `results/evaluation/`
 - Legacy folders such as `对比文献2`, `整单结果`, and `部分履约结果` now contain notes or old entry points, not duplicated result files

@@ -556,8 +556,8 @@ def main():
 
     print("\n[1] 加载数据...")
     params_full, weekly_demand_full = load_data(
-        sku_path=BASE_DIR / 'sku_params.csv',
-        demand_path=BASE_DIR / 'daily_demand.csv',
+        sku_path=DATA_DIR / 'sku_params.csv',
+        demand_path=DATA_DIR / 'daily_demand.csv',
         n_sku=N_SKU,
     )
     print(f"    加载完成: {len(params_full)} SKU, {len(weekly_demand_full)} 周")
