@@ -1,0 +1,583 @@
+{"kind":"deck","id":"or-tools-project-deck","slideCount":20,"slideSize":{"width":1280,"height":720}}
+{"kind":"slide","slide":1,"id":"9m8cml"}
+{"kind":"slide","slide":2,"id":"bav1n9"}
+{"kind":"slide","slide":3,"id":"2fojgj"}
+{"kind":"slide","slide":4,"id":"nn2uv2"}
+{"kind":"slide","slide":5,"id":"j0633s"}
+{"kind":"slide","slide":6,"id":"rze58g"}
+{"kind":"slide","slide":7,"id":"a2i1ov"}
+{"kind":"slide","slide":8,"id":"5m8293"}
+{"kind":"slide","slide":9,"id":"tb0sc0"}
+{"kind":"slide","slide":10,"id":"499uuf"}
+{"kind":"slide","slide":11,"id":"nuocq3"}
+{"kind":"slide","slide":12,"id":"v63y87"}
+{"kind":"slide","slide":13,"id":"87s4xx"}
+{"kind":"slide","slide":14,"id":"30jc9s"}
+{"kind":"slide","slide":15,"id":"fc68mz"}
+{"kind":"slide","slide":16,"id":"qtxink"}
+{"kind":"slide","slide":17,"id":"mgo6fq"}
+{"kind":"slide","slide":18,"id":"w9jtbz"}
+{"kind":"slide","slide":19,"id":"flmjrm"}
+{"kind":"slide","slide":20,"id":"0sfgk2"}
+{"kind":"image","slide":1,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":1,"id":"3","role":"cover contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":1,"id":"4","role":"cover accent rule","shapeType":"rect","bbox":[64,86,7,455]}
+{"kind":"textbox","slide":1,"id":"5","role":"kicker","text":"PROJECT PRESENTATION","textPreview":"PROJECT PRESENTATION","textChars":20,"textLines":1,"bbox":[86,88,520,26]}
+{"kind":"textbox","slide":1,"id":"6","role":"cover title","text":"即时零售前置仓 SKU 选品与库存配置联合优化研究","textPreview":"即时零售前置仓 SKU 选品与库存配置联合优化研究","textChars":25,"textLines":1,"bbox":[82,130,785,184]}
+{"kind":"textbox","slide":1,"id":"7","role":"cover subtitle","text":"基于真实 scanner data 的建模、求解、订单回放评估与管理启示","textPreview":"基于真实 scanner data 的建模、求解、订单回放评估与管理启示","textChars":36,"textLines":1,"bbox":[86,326,610,86]}
+{"kind":"shape","slide":1,"id":"8","role":"cover moment panel","shapeType":"roundRect","bbox":[86,456,390,92]}
+{"kind":"textbox","slide":1,"id":"9","role":"cover moment","text":"核心主线：业务痛点 → 文献定位 → 联合优化 → 订单回放 → 管理建议","textPreview":"核心主线：业务痛点 → 文献定位 → 联合优化 → 订单回放 → 管理建议","textChars":37,"textLines":1,"bbox":[112,478,336,40]}
+{"kind":"image","slide":2,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":2,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":2,"id":"4","role":"header","text":"BACKGROUND","textPreview":"BACKGROUND","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":2,"id":"5","role":"header","text":"02 / 20","textPreview":"02 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":2,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":2,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":2,"id":"8","role":"title","text":"研究背景：前置仓运营面临服务与容量的双重矛盾","textPreview":"研究背景：前置仓运营面临服务与容量的双重矛盾","textChars":22,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":2,"id":"9","role":"subtitle","text":"消费者希望更快送达和更完整供给，但前置仓不可能覆盖全部 SKU 与库存深度。","textPreview":"消费者希望更快送达和更完整供给，但前置仓不可能覆盖全部 SKU 与库存深度。","textChars":38,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":2,"id":"10","role":"card panel: 业务压力","shapeType":"roundRect","bbox":[84,410,355.3333333333333,194]}
+{"kind":"shape","slide":2,"id":"11","role":"card accent: 业务压力","shapeType":"rect","bbox":[84,410,8,194]}
+{"kind":"shape","slide":2,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,434,54,54]}
+{"kind":"shape","slide":2,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,463,6,12]}
+{"kind":"shape","slide":2,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,455,6,20]}
+{"kind":"shape","slide":2,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,448,6,27]}
+{"kind":"textbox","slide":2,"id":"16","role":"card label","text":"业务压力","textPreview":"业务压力","textChars":4,"textLines":1,"bbox":[172,432,247.33333333333331,28]}
+{"kind":"textbox","slide":2,"id":"17","role":"card body: 业务压力","text":"即时零售强调分钟级配送、低缺货和足够丰富的商品覆盖，前置仓直接承接用户体验。","textPreview":"即时零售强调分钟级配送、低缺货和足够丰富的商品覆盖，前置仓直接承接用户体验。","textChars":38,"textLines":1,"bbox":[108,496,307.3333333333333,86]}
+{"kind":"shape","slide":2,"id":"18","role":"card panel: 资源约束","shapeType":"roundRect","bbox":[463.3333333333333,410,355.3333333333333,194]}
+{"kind":"shape","slide":2,"id":"19","role":"card accent: 资源约束","shapeType":"rect","bbox":[463.3333333333333,410,8,194]}
+{"kind":"shape","slide":2,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,434,54,54]}
+{"kind":"shape","slide":2,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,452,10,10]}
+{"kind":"shape","slide":2,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,461,10,10]}
+{"kind":"shape","slide":2,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,459,19,3]}
+{"kind":"textbox","slide":2,"id":"24","role":"card label","text":"资源约束","textPreview":"资源约束","textChars":4,"textLines":1,"bbox":[551.3333333333333,432,247.33333333333331,28]}
+{"kind":"textbox","slide":2,"id":"25","role":"card body: 资源约束","text":"仓容、重量、陈列位和运营能力都有限，SKU\n过多会挤占空间并提高复杂度。","textPreview":"仓容、重量、陈列位和运营能力都有限，SKU | 过多会挤占空间并提高复杂度。","textChars":36,"textLines":2,"bbox":[487.3333333333333,496,307.3333333333333,86]}
+{"kind":"shape","slide":2,"id":"26","role":"card panel: 决策挑战","shapeType":"roundRect","bbox":[842.6666666666666,410,355.3333333333333,194]}
+{"kind":"shape","slide":2,"id":"27","role":"card accent: 决策挑战","shapeType":"rect","bbox":[842.6666666666666,410,8,194]}
+{"kind":"shape","slide":2,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,434,54,54]}
+{"kind":"shape","slide":2,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,449,26,13]}
+{"kind":"shape","slide":2,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,458,26,13]}
+{"kind":"shape","slide":2,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,467,20,10]}
+{"kind":"textbox","slide":2,"id":"32","role":"card label","text":"决策挑战","textPreview":"决策挑战","textChars":4,"textLines":1,"bbox":[930.6666666666666,432,247.33333333333331,28]}
+{"kind":"textbox","slide":2,"id":"33","role":"card body: 决策挑战","text":"SKU 太少会丢失需求，SKU\n太多又会带来滞销和管理成本，因此必须做结构化取舍。","textPreview":"SKU 太少会丢失需求，SKU | 太多又会带来滞销和管理成本，因此必须做结构化取舍。","textChars":41,"textLines":2,"bbox":[866.6666666666666,496,307.3333333333333,86]}
+{"kind":"image","slide":3,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":3,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":3,"id":"4","role":"header","text":"QUESTION","textPreview":"QUESTION","textChars":8,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":3,"id":"5","role":"header","text":"03 / 20","textPreview":"03 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":3,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":3,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":3,"id":"8","role":"title","text":"研究问题：前置仓到底该卖什么，以及每个 SKU 备多少","textPreview":"研究问题：前置仓到底该卖什么，以及每个 SKU 备多少","textChars":27,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":3,"id":"9","role":"subtitle","text":"本文关注在不确定需求与容量约束下，如何联合决定 SKU 上架与库存配置。","textPreview":"本文关注在不确定需求与容量约束下，如何联合决定 SKU 上架与库存配置。","textChars":36,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":3,"id":"10","role":"card panel: 核心决策","shapeType":"roundRect","bbox":[84,410,355.3333333333333,194]}
+{"kind":"shape","slide":3,"id":"11","role":"card accent: 核心决策","shapeType":"rect","bbox":[84,410,8,194]}
+{"kind":"shape","slide":3,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,434,54,54]}
+{"kind":"shape","slide":3,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,463,6,12]}
+{"kind":"shape","slide":3,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,455,6,20]}
+{"kind":"shape","slide":3,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,448,6,27]}
+{"kind":"textbox","slide":3,"id":"16","role":"card label","text":"核心决策","textPreview":"核心决策","textChars":4,"textLines":1,"bbox":[172,432,247.33333333333331,28]}
+{"kind":"textbox","slide":3,"id":"17","role":"card body: 核心决策","text":"决定 SKU 是否进入前置仓\nassortment，同时决定进入后的备货数量。","textPreview":"决定 SKU 是否进入前置仓 | assortment，同时决定进入后的备货数量。","textChars":39,"textLines":2,"bbox":[108,496,307.3333333333333,86]}
+{"kind":"shape","slide":3,"id":"18","role":"card panel: 评价目标","shapeType":"roundRect","bbox":[463.3333333333333,410,355.3333333333333,194]}
+{"kind":"shape","slide":3,"id":"19","role":"card accent: 评价目标","shapeType":"rect","bbox":[463.3333333333333,410,8,194]}
+{"kind":"shape","slide":3,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,434,54,54]}
+{"kind":"shape","slide":3,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,452,10,10]}
+{"kind":"shape","slide":3,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,461,10,10]}
+{"kind":"shape","slide":3,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,459,19,3]}
+{"kind":"textbox","slide":3,"id":"24","role":"card label","text":"评价目标","textPreview":"评价目标","textChars":4,"textLines":1,"bbox":[551.3333333333333,432,247.33333333333331,28]}
+{"kind":"textbox","slide":3,"id":"25","role":"card body: 评价目标","text":"在满足体积和重量约束的前提下，提高服务水平并兼顾经济性与求解效率。","textPreview":"在满足体积和重量约束的前提下，提高服务水平并兼顾经济性与求解效率。","textChars":33,"textLines":1,"bbox":[487.3333333333333,496,307.3333333333333,86]}
+{"kind":"shape","slide":3,"id":"26","role":"card panel: 验证方式","shapeType":"roundRect","bbox":[842.6666666666666,410,355.3333333333333,194]}
+{"kind":"shape","slide":3,"id":"27","role":"card accent: 验证方式","shapeType":"rect","bbox":[842.6666666666666,410,8,194]}
+{"kind":"shape","slide":3,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,434,54,54]}
+{"kind":"shape","slide":3,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,449,26,13]}
+{"kind":"shape","slide":3,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,458,26,13]}
+{"kind":"shape","slide":3,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,467,20,10]}
+{"kind":"textbox","slide":3,"id":"32","role":"card label","text":"验证方式","textPreview":"验证方式","textChars":4,"textLines":1,"bbox":[930.6666666666666,432,247.33333333333331,28]}
+{"kind":"textbox","slide":3,"id":"33","role":"card body: 验证方式","text":"不仅看聚合 line fill\nrate，还回到真实订单层面做整单与部分履约回放。","textPreview":"不仅看聚合 line fill | rate，还回到真实订单层面做整单与部分履约回放。","textChars":41,"textLines":2,"bbox":[866.6666666666666,496,307.3333333333333,86]}
+{"kind":"image","slide":4,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":4,"id":"3","role":"metrics contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":4,"id":"4","role":"header","text":"SIGNIFICANCE","textPreview":"SIGNIFICANCE","textChars":12,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":4,"id":"5","role":"header","text":"04 / 20","textPreview":"04 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":4,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":4,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":4,"id":"8","role":"title","text":"研究意义：把学术问题和业务落地连接起来","textPreview":"研究意义：把学术问题和业务落地连接起来","textChars":19,"textLines":1,"bbox":[64,86,700,142]}
+{"kind":"textbox","slide":4,"id":"9","role":"subtitle","text":"本文希望建立一个既可建模求解、又能回到履约现实的研究框架。","textPreview":"本文希望建立一个既可建模求解、又能回到履约现实的研究框架。","textChars":29,"textLines":1,"bbox":[66,234,700,70]}
+{"kind":"shape","slide":4,"id":"10","role":"metric panel: 选品与库存同框考虑","shapeType":"roundRect","bbox":[92,404,330,174]}
+{"kind":"shape","slide":4,"id":"11","role":"metric accent: 选品与库存同框考虑","shapeType":"rect","bbox":[92,404,330,7]}
+{"kind":"textbox","slide":4,"id":"12","role":"metric value","text":"联合优化","textPreview":"联合优化","textChars":4,"textLines":1,"bbox":[114,428,286,54]}
+{"kind":"textbox","slide":4,"id":"13","role":"metric label","text":"选品与库存同框考虑","textPreview":"选品与库存同框考虑","textChars":9,"textLines":1,"bbox":[116,486,282,38]}
+{"kind":"textbox","slide":4,"id":"14","role":"metric note","text":"避免将 assortment 和 stocking depth 割裂处理","textPreview":"避免将 assortment 和 stocking depth 割裂处理","textChars":36,"textLines":1,"bbox":[116,536,282,22]}
+{"kind":"shape","slide":4,"id":"15","role":"metric panel: scanner transaction data","shapeType":"roundRect","bbox":[462,404,330,174]}
+{"kind":"shape","slide":4,"id":"16","role":"metric accent: scanner transaction data","shapeType":"rect","bbox":[462,404,330,7]}
+{"kind":"textbox","slide":4,"id":"17","role":"metric value","text":"真实数据","textPreview":"真实数据","textChars":4,"textLines":1,"bbox":[484,428,286,54]}
+{"kind":"textbox","slide":4,"id":"18","role":"metric label","text":"scanner transaction data","textPreview":"scanner transaction data","textChars":24,"textLines":1,"bbox":[486,486,282,38]}
+{"kind":"textbox","slide":4,"id":"19","role":"metric note","text":"参数估计与实验验证都基于真实订单数据","textPreview":"参数估计与实验验证都基于真实订单数据","textChars":18,"textLines":1,"bbox":[486,536,282,22]}
+{"kind":"shape","slide":4,"id":"20","role":"metric panel: 订单级 replay","shapeType":"roundRect","bbox":[832,404,330,174]}
+{"kind":"shape","slide":4,"id":"21","role":"metric accent: 订单级 replay","shapeType":"rect","bbox":[832,404,330,7]}
+{"kind":"textbox","slide":4,"id":"22","role":"metric value","text":"回放检验","textPreview":"回放检验","textChars":4,"textLines":1,"bbox":[854,428,286,54]}
+{"kind":"textbox","slide":4,"id":"23","role":"metric label","text":"订单级 replay","textPreview":"订单级 replay","textChars":10,"textLines":1,"bbox":[856,486,282,38]}
+{"kind":"textbox","slide":4,"id":"24","role":"metric note","text":"检验聚合 fill rate 与真实履约表现之间的偏差","textPreview":"检验聚合 fill rate 与真实履约表现之间的偏差","textChars":27,"textLines":1,"bbox":[856,536,282,22]}
+{"kind":"image","slide":5,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":5,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":5,"id":"4","role":"header","text":"LITERATURE","textPreview":"LITERATURE","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":5,"id":"5","role":"header","text":"05 / 20","textPreview":"05 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":5,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":5,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":5,"id":"8","role":"title","text":"文献综述：现有研究主要沿三条主线展开","textPreview":"文献综述：现有研究主要沿三条主线展开","textChars":18,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":5,"id":"9","role":"subtitle","text":"选品优化、库存优化和联合优化与替代需求建模构成了本文的文献背景。","textPreview":"选品优化、库存优化和联合优化与替代需求建模构成了本文的文献背景。","textChars":32,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":5,"id":"10","role":"card panel: 选品研究","shapeType":"roundRect","bbox":[84,410,355.3333333333333,194]}
+{"kind":"shape","slide":5,"id":"11","role":"card accent: 选品研究","shapeType":"rect","bbox":[84,410,8,194]}
+{"kind":"shape","slide":5,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,434,54,54]}
+{"kind":"shape","slide":5,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,463,6,12]}
+{"kind":"shape","slide":5,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,455,6,20]}
+{"kind":"shape","slide":5,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,448,6,27]}
+{"kind":"textbox","slide":5,"id":"16","role":"card label","text":"选品研究","textPreview":"选品研究","textChars":4,"textLines":1,"bbox":[172,432,247.33333333333331,28]}
+{"kind":"textbox","slide":5,"id":"17","role":"card body: 选品研究","text":"assortment planning\n关注利润、覆盖和吸引力，但通常弱化库存深度与履约过程。","textPreview":"assortment planning | 关注利润、覆盖和吸引力，但通常弱化库存深度与履约过程。","textChars":47,"textLines":2,"bbox":[108,496,307.3333333333333,86]}
+{"kind":"shape","slide":5,"id":"18","role":"card panel: 库存研究","shapeType":"roundRect","bbox":[463.3333333333333,410,355.3333333333333,194]}
+{"kind":"shape","slide":5,"id":"19","role":"card accent: 库存研究","shapeType":"rect","bbox":[463.3333333333333,410,8,194]}
+{"kind":"shape","slide":5,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,434,54,54]}
+{"kind":"shape","slide":5,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,452,10,10]}
+{"kind":"shape","slide":5,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,461,10,10]}
+{"kind":"shape","slide":5,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,459,19,3]}
+{"kind":"textbox","slide":5,"id":"24","role":"card label","text":"库存研究","textPreview":"库存研究","textChars":4,"textLines":1,"bbox":[551.3333333333333,432,247.33333333333331,28]}
+{"kind":"textbox","slide":5,"id":"25","role":"card body: 库存研究","text":"库存与补货研究强调缺货和持有成本，但常在既定 SKU\n集合上展开，较少处理 assortment 决策。","textPreview":"库存与补货研究强调缺货和持有成本，但常在既定 SKU | 集合上展开，较少处理 assortment 决策。","textChars":52,"textLines":2,"bbox":[487.3333333333333,496,307.3333333333333,86]}
+{"kind":"shape","slide":5,"id":"26","role":"card panel: 联合与替代","shapeType":"roundRect","bbox":[842.6666666666666,410,355.3333333333333,194]}
+{"kind":"shape","slide":5,"id":"27","role":"card accent: 联合与替代","shapeType":"rect","bbox":[842.6666666666666,410,8,194]}
+{"kind":"shape","slide":5,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,434,54,54]}
+{"kind":"shape","slide":5,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,449,26,13]}
+{"kind":"shape","slide":5,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,458,26,13]}
+{"kind":"shape","slide":5,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,467,20,10]}
+{"kind":"textbox","slide":5,"id":"32","role":"card label","text":"联合与替代","textPreview":"联合与替代","textChars":5,"textLines":1,"bbox":[930.6666666666666,432,247.33333333333331,28]}
+{"kind":"textbox","slide":5,"id":"33","role":"card body: 联合与替代","text":"更接近前置仓实践，但往往需要篮子级数据、效用模型或完整替代矩阵，落地门槛较高。","textPreview":"更接近前置仓实践，但往往需要篮子级数据、效用模型或完整替代矩阵，落地门槛较高。","textChars":39,"textLines":1,"bbox":[866.6666666666666,496,307.3333333333333,86]}
+{"kind":"image","slide":6,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":6,"id":"3","role":"metrics contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":6,"id":"4","role":"header","text":"CONTRIBUTION","textPreview":"CONTRIBUTION","textChars":12,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":6,"id":"5","role":"header","text":"06 / 20","textPreview":"06 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":6,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":6,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":6,"id":"8","role":"title","text":"文献不足与本文贡献","textPreview":"文献不足与本文贡献","textChars":9,"textLines":1,"bbox":[64,86,700,142]}
+{"kind":"textbox","slide":6,"id":"9","role":"subtitle","text":"本文把研究空白具体落在联合决策、真实数据实验和订单级评估三个方面。","textPreview":"本文把研究空白具体落在联合决策、真实数据实验和订单级评估三个方面。","textChars":33,"textLines":1,"bbox":[66,234,700,70]}
+{"kind":"shape","slide":6,"id":"10","role":"metric panel: 选品和库存常被拆开","shapeType":"roundRect","bbox":[92,404,330,174]}
+{"kind":"shape","slide":6,"id":"11","role":"metric accent: 选品和库存常被拆开","shapeType":"rect","bbox":[92,404,330,7]}
+{"kind":"textbox","slide":6,"id":"12","role":"metric value","text":"Gap 1","textPreview":"Gap 1","textChars":5,"textLines":1,"bbox":[114,428,286,54]}
+{"kind":"textbox","slide":6,"id":"13","role":"metric label","text":"选品和库存常被拆开","textPreview":"选品和库存常被拆开","textChars":9,"textLines":1,"bbox":[116,486,282,38]}
+{"kind":"textbox","slide":6,"id":"14","role":"metric note","text":"本文用统一变量体系表示是否上架与备货量","textPreview":"本文用统一变量体系表示是否上架与备货量","textChars":19,"textLines":1,"bbox":[116,536,282,22]}
+{"kind":"shape","slide":6,"id":"15","role":"metric panel: 替代与评估门槛较高","shapeType":"roundRect","bbox":[462,404,330,174]}
+{"kind":"shape","slide":6,"id":"16","role":"metric accent: 替代与评估门槛较高","shapeType":"rect","bbox":[462,404,330,7]}
+{"kind":"textbox","slide":6,"id":"17","role":"metric value","text":"Gap 2","textPreview":"Gap 2","textChars":5,"textLines":1,"bbox":[484,428,286,54]}
+{"kind":"textbox","slide":6,"id":"18","role":"metric label","text":"替代与评估门槛较高","textPreview":"替代与评估门槛较高","textChars":9,"textLines":1,"bbox":[486,486,282,38]}
+{"kind":"textbox","slide":6,"id":"19","role":"metric note","text":"本文加入文献 hybrid baseline 作为比较参考","textPreview":"本文加入文献 hybrid baseline 作为比较参考","textChars":29,"textLines":1,"bbox":[486,536,282,22]}
+{"kind":"shape","slide":6,"id":"20","role":"metric panel: 缺少真实订单层验证","shapeType":"roundRect","bbox":[832,404,330,174]}
+{"kind":"shape","slide":6,"id":"21","role":"metric accent: 缺少真实订单层验证","shapeType":"rect","bbox":[832,404,330,7]}
+{"kind":"textbox","slide":6,"id":"22","role":"metric value","text":"Gap 3","textPreview":"Gap 3","textChars":5,"textLines":1,"bbox":[854,428,286,54]}
+{"kind":"textbox","slide":6,"id":"23","role":"metric label","text":"缺少真实订单层验证","textPreview":"缺少真实订单层验证","textChars":9,"textLines":1,"bbox":[856,486,282,38]}
+{"kind":"textbox","slide":6,"id":"24","role":"metric note","text":"本文设计整单与部分履约两类订单回放评估","textPreview":"本文设计整单与部分履约两类订单回放评估","textChars":19,"textLines":1,"bbox":[856,536,282,22]}
+{"kind":"image","slide":7,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":7,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":7,"id":"4","role":"header","text":"FRAMEWORK","textPreview":"FRAMEWORK","textChars":9,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":7,"id":"5","role":"header","text":"07 / 20","textPreview":"07 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":7,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":7,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":7,"id":"8","role":"title","text":"研究框架：从原始订单到管理启示形成完整闭环","textPreview":"研究框架：从原始订单到管理启示形成完整闭环","textChars":21,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":7,"id":"9","role":"subtitle","text":"项目组织成一条清晰的实验流水线，而不是零散脚本集合。","textPreview":"项目组织成一条清晰的实验流水线，而不是零散脚本集合。","textChars":26,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":7,"id":"10","role":"card panel: 数据处理","shapeType":"roundRect","bbox":[84,410,355.3333333333333,194]}
+{"kind":"shape","slide":7,"id":"11","role":"card accent: 数据处理","shapeType":"rect","bbox":[84,410,8,194]}
+{"kind":"shape","slide":7,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,434,54,54]}
+{"kind":"shape","slide":7,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,463,6,12]}
+{"kind":"shape","slide":7,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,455,6,20]}
+{"kind":"shape","slide":7,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,448,6,27]}
+{"kind":"textbox","slide":7,"id":"16","role":"card label","text":"数据处理","textPreview":"数据处理","textChars":4,"textLines":1,"bbox":[172,432,247.33333333333331,28]}
+{"kind":"textbox","slide":7,"id":"17","role":"card body: 数据处理","text":"原始 scanner data 经过清洗、候选 SKU\n筛选和需求矩阵构造，生成建模输入。","textPreview":"原始 scanner data 经过清洗、候选 SKU | 筛选和需求矩阵构造，生成建模输入。","textChars":45,"textLines":2,"bbox":[108,496,307.3333333333333,86]}
+{"kind":"shape","slide":7,"id":"18","role":"card panel: 优化与评估","shapeType":"roundRect","bbox":[463.3333333333333,410,355.3333333333333,194]}
+{"kind":"shape","slide":7,"id":"19","role":"card accent: 优化与评估","shapeType":"rect","bbox":[463.3333333333333,410,8,194]}
+{"kind":"shape","slide":7,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,434,54,54]}
+{"kind":"shape","slide":7,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,452,10,10]}
+{"kind":"shape","slide":7,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,461,10,10]}
+{"kind":"shape","slide":7,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,459,19,3]}
+{"kind":"textbox","slide":7,"id":"24","role":"card label","text":"优化与评估","textPreview":"优化与评估","textChars":5,"textLines":1,"bbox":[551.3333333333333,432,247.33333333333331,28]}
+{"kind":"textbox","slide":7,"id":"25","role":"card body: 优化与评估","text":"主优化器生成 rolling-window\n方案，再用真实订单 replay\n检验整单与部分履约表现。","textPreview":"主优化器生成 rolling-window | 方案，再用真实订单 replay | 检验整单与部分履约表现。","textChars":51,"textLines":3,"bbox":[487.3333333333333,496,307.3333333333333,86]}
+{"kind":"shape","slide":7,"id":"26","role":"card panel: 对比与提炼","shapeType":"roundRect","bbox":[842.6666666666666,410,355.3333333333333,194]}
+{"kind":"shape","slide":7,"id":"27","role":"card accent: 对比与提炼","shapeType":"rect","bbox":[842.6666666666666,410,8,194]}
+{"kind":"shape","slide":7,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,434,54,54]}
+{"kind":"shape","slide":7,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,449,26,13]}
+{"kind":"shape","slide":7,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,458,26,13]}
+{"kind":"shape","slide":7,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,467,20,10]}
+{"kind":"textbox","slide":7,"id":"32","role":"card label","text":"对比与提炼","textPreview":"对比与提炼","textChars":5,"textLines":1,"bbox":[930.6666666666666,432,247.33333333333331,28]}
+{"kind":"textbox","slide":7,"id":"33","role":"card body: 对比与提炼","text":"在文献 hybrid_v2 基线下做\nbenchmark，对结果进行解释并提炼管理启示。","textPreview":"在文献 hybrid_v2 基线下做 | benchmark，对结果进行解释并提炼管理启示。","textChars":44,"textLines":2,"bbox":[866.6666666666666,496,307.3333333333333,86]}
+{"kind":"image","slide":8,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":8,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":8,"id":"4","role":"header","text":"SETTING","textPreview":"SETTING","textChars":7,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":8,"id":"5","role":"header","text":"08 / 20","textPreview":"08 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":8,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":8,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":8,"id":"8","role":"title","text":"业务场景与建模思路","textPreview":"业务场景与建模思路","textChars":9,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":8,"id":"9","role":"subtitle","text":"通过一个库存量变量同时编码‘是否入选 assortment’和‘备货深度’。","textPreview":"通过一个库存量变量同时编码‘是否入选 assortment’和‘备货深度’。","textChars":38,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":8,"id":"10","role":"card panel: 决策对象","shapeType":"roundRect","bbox":[84,410,355.3333333333333,194]}
+{"kind":"shape","slide":8,"id":"11","role":"card accent: 决策对象","shapeType":"rect","bbox":[84,410,8,194]}
+{"kind":"shape","slide":8,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,434,54,54]}
+{"kind":"shape","slide":8,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,463,6,12]}
+{"kind":"shape","slide":8,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,455,6,20]}
+{"kind":"shape","slide":8,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,448,6,27]}
+{"kind":"textbox","slide":8,"id":"16","role":"card label","text":"决策对象","textPreview":"决策对象","textChars":4,"textLines":1,"bbox":[172,432,247.33333333333331,28]}
+{"kind":"textbox","slide":8,"id":"17","role":"card body: 决策对象","text":"若 q_i = 0，则 SKU 不进入前置仓；若 q_i\n> 0，则该 SKU 入仓并占用容量资源。","textPreview":"若 q_i = 0，则 SKU 不进入前置仓；若 q_i | > 0，则该 SKU 入仓并占用容量资源。","textChars":50,"textLines":2,"bbox":[108,496,307.3333333333333,86]}
+{"kind":"shape","slide":8,"id":"18","role":"card panel: 现实要素","shapeType":"roundRect","bbox":[463.3333333333333,410,355.3333333333333,194]}
+{"kind":"shape","slide":8,"id":"19","role":"card accent: 现实要素","shapeType":"rect","bbox":[463.3333333333333,410,8,194]}
+{"kind":"shape","slide":8,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,434,54,54]}
+{"kind":"shape","slide":8,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,452,10,10]}
+{"kind":"shape","slide":8,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,461,10,10]}
+{"kind":"shape","slide":8,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,459,19,3]}
+{"kind":"textbox","slide":8,"id":"24","role":"card label","text":"现实要素","textPreview":"现实要素","textChars":4,"textLines":1,"bbox":[551.3333333333333,432,247.33333333333331,28]}
+{"kind":"textbox","slide":8,"id":"25","role":"card body: 现实要素","text":"模型同时考虑随机需求、体积与重量约束、持有成本、缺货损失和上架固定成本。","textPreview":"模型同时考虑随机需求、体积与重量约束、持有成本、缺货损失和上架固定成本。","textChars":36,"textLines":1,"bbox":[487.3333333333333,496,307.3333333333333,86]}
+{"kind":"shape","slide":8,"id":"26","role":"card panel: 优化目标","shapeType":"roundRect","bbox":[842.6666666666666,410,355.3333333333333,194]}
+{"kind":"shape","slide":8,"id":"27","role":"card accent: 优化目标","shapeType":"rect","bbox":[842.6666666666666,410,8,194]}
+{"kind":"shape","slide":8,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,434,54,54]}
+{"kind":"shape","slide":8,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,449,26,13]}
+{"kind":"shape","slide":8,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,458,26,13]}
+{"kind":"shape","slide":8,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,467,20,10]}
+{"kind":"textbox","slide":8,"id":"32","role":"card label","text":"优化目标","textPreview":"优化目标","textChars":4,"textLines":1,"bbox":[930.6666666666666,432,247.33333333333331,28]}
+{"kind":"textbox","slide":8,"id":"33","role":"card body: 优化目标","text":"在容量受限的前提下，平衡服务水平、库存风险和经营成本，而不是只追求\nSKU 数量。","textPreview":"在容量受限的前提下，平衡服务水平、库存风险和经营成本，而不是只追求 | SKU 数量。","textChars":41,"textLines":2,"bbox":[866.6666666666666,496,307.3333333333333,86]}
+{"kind":"image","slide":9,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":9,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":9,"id":"4","role":"header","text":"MODEL","textPreview":"MODEL","textChars":5,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":9,"id":"5","role":"header","text":"09 / 20","textPreview":"09 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":9,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":9,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":9,"id":"8","role":"title","text":"联合优化模型构建","textPreview":"联合优化模型构建","textChars":8,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":9,"id":"9","role":"subtitle","text":"目标函数围绕期望净收益展开，约束则体现前置仓资源边界。","textPreview":"目标函数围绕期望净收益展开，约束则体现前置仓资源边界。","textChars":27,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":9,"id":"10","role":"card panel: 目标函数","shapeType":"roundRect","bbox":[84,410,355.3333333333333,194]}
+{"kind":"shape","slide":9,"id":"11","role":"card accent: 目标函数","shapeType":"rect","bbox":[84,410,8,194]}
+{"kind":"shape","slide":9,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,434,54,54]}
+{"kind":"shape","slide":9,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,463,6,12]}
+{"kind":"shape","slide":9,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,455,6,20]}
+{"kind":"shape","slide":9,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,448,6,27]}
+{"kind":"textbox","slide":9,"id":"16","role":"card label","text":"目标函数","textPreview":"目标函数","textChars":4,"textLines":1,"bbox":[172,432,247.33333333333331,28]}
+{"kind":"textbox","slide":9,"id":"17","role":"card body: 目标函数","text":"最大化销售收益减去库存持有成本、缺货损失和上架固定成本的期望净收益。","textPreview":"最大化销售收益减去库存持有成本、缺货损失和上架固定成本的期望净收益。","textChars":34,"textLines":1,"bbox":[108,496,307.3333333333333,86]}
+{"kind":"shape","slide":9,"id":"18","role":"card panel: 核心约束","shapeType":"roundRect","bbox":[463.3333333333333,410,355.3333333333333,194]}
+{"kind":"shape","slide":9,"id":"19","role":"card accent: 核心约束","shapeType":"rect","bbox":[463.3333333333333,410,8,194]}
+{"kind":"shape","slide":9,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,434,54,54]}
+{"kind":"shape","slide":9,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,452,10,10]}
+{"kind":"shape","slide":9,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,461,10,10]}
+{"kind":"shape","slide":9,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,459,19,3]}
+{"kind":"textbox","slide":9,"id":"24","role":"card label","text":"核心约束","textPreview":"核心约束","textChars":4,"textLines":1,"bbox":[551.3333333333333,432,247.33333333333331,28]}
+{"kind":"textbox","slide":9,"id":"25","role":"card body: 核心约束","text":"总体积不超过 V，总重量不超过\nW，同时备货量非负并受上界约束。","textPreview":"总体积不超过 V，总重量不超过 | W，同时备货量非负并受上界约束。","textChars":32,"textLines":2,"bbox":[487.3333333333333,496,307.3333333333333,86]}
+{"kind":"shape","slide":9,"id":"26","role":"card panel: 评价输出","shapeType":"roundRect","bbox":[842.6666666666666,410,355.3333333333333,194]}
+{"kind":"shape","slide":9,"id":"27","role":"card accent: 评价输出","shapeType":"rect","bbox":[842.6666666666666,410,8,194]}
+{"kind":"shape","slide":9,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,434,54,54]}
+{"kind":"shape","slide":9,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,449,26,13]}
+{"kind":"shape","slide":9,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,458,26,13]}
+{"kind":"shape","slide":9,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,467,20,10]}
+{"kind":"textbox","slide":9,"id":"32","role":"card label","text":"评价输出","textPreview":"评价输出","textChars":4,"textLines":1,"bbox":[930.6666666666666,432,247.33333333333331,28]}
+{"kind":"textbox","slide":9,"id":"33","role":"card body: 评价输出","text":"模型内部输出 line fill\nrate、平均缺货概率、备货方案和算法运行时间。","textPreview":"模型内部输出 line fill | rate、平均缺货概率、备货方案和算法运行时间。","textChars":41,"textLines":2,"bbox":[866.6666666666666,496,307.3333333333333,86]}
+{"kind":"image","slide":10,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":10,"id":"3","role":"metrics contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":10,"id":"4","role":"header","text":"DEMAND","textPreview":"DEMAND","textChars":6,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":10,"id":"5","role":"header","text":"10 / 20","textPreview":"10 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":10,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":10,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":10,"id":"8","role":"title","text":"需求建模与参数估计","textPreview":"需求建模与参数估计","textChars":9,"textLines":1,"bbox":[64,86,700,142]}
+{"kind":"textbox","slide":10,"id":"9","role":"subtitle","text":"先从日销售序列估计需求分布，再构造收益、成本和容量代理参数。","textPreview":"先从日销售序列估计需求分布，再构造收益、成本和容量代理参数。","textChars":30,"textLines":1,"bbox":[66,234,700,70]}
+{"kind":"shape","slide":10,"id":"10","role":"metric panel: 候选 SKU","shapeType":"roundRect","bbox":[92,404,330,174]}
+{"kind":"shape","slide":10,"id":"11","role":"metric accent: 候选 SKU","shapeType":"rect","bbox":[92,404,330,7]}
+{"kind":"textbox","slide":10,"id":"12","role":"metric value","text":"500","textPreview":"500","textChars":3,"textLines":1,"bbox":[114,428,286,54]}
+{"kind":"textbox","slide":10,"id":"13","role":"metric label","text":"候选 SKU","textPreview":"候选 SKU","textChars":6,"textLines":1,"bbox":[116,486,282,38]}
+{"kind":"textbox","slide":10,"id":"14","role":"metric note","text":"经过活跃天数和总销量筛选后保留的高频 SKU 数量","textPreview":"经过活跃天数和总销量筛选后保留的高频 SKU 数量","textChars":25,"textLines":1,"bbox":[116,536,282,22]}
+{"kind":"shape","slide":10,"id":"15","role":"metric panel: NegBin SKU","shapeType":"roundRect","bbox":[462,404,330,174]}
+{"kind":"shape","slide":10,"id":"16","role":"metric accent: NegBin SKU","shapeType":"rect","bbox":[462,404,330,7]}
+{"kind":"textbox","slide":10,"id":"17","role":"metric value","text":"345","textPreview":"345","textChars":3,"textLines":1,"bbox":[484,428,286,54]}
+{"kind":"textbox","slide":10,"id":"18","role":"metric label","text":"NegBin SKU","textPreview":"NegBin SKU","textChars":10,"textLines":1,"bbox":[486,486,282,38]}
+{"kind":"textbox","slide":10,"id":"19","role":"metric note","text":"use_negbin=1，说明过度离散较明显的 SKU 数量","textPreview":"use_negbin=1，说明过度离散较明显的 SKU 数量","textChars":30,"textLines":1,"bbox":[486,536,282,22]}
+{"kind":"shape","slide":10,"id":"20","role":"metric panel: 平均日需求","shapeType":"roundRect","bbox":[832,404,330,174]}
+{"kind":"shape","slide":10,"id":"21","role":"metric accent: 平均日需求","shapeType":"rect","bbox":[832,404,330,7]}
+{"kind":"textbox","slide":10,"id":"22","role":"metric value","text":"0.60","textPreview":"0.60","textChars":4,"textLines":1,"bbox":[854,428,286,54]}
+{"kind":"textbox","slide":10,"id":"23","role":"metric label","text":"平均日需求","textPreview":"平均日需求","textChars":5,"textLines":1,"bbox":[856,486,282,38]}
+{"kind":"textbox","slide":10,"id":"24","role":"metric note","text":"sku_params.csv 中 mu_daily 的均值，反映长尾需求特征","textPreview":"sku_params.csv 中 mu_daily 的均值，反映长尾需求特征","textChars":38,"textLines":1,"bbox":[856,536,282,22]}
+{"kind":"image","slide":11,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":11,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":11,"id":"4","role":"header","text":"METHODS","textPreview":"METHODS","textChars":7,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":11,"id":"5","role":"header","text":"11 / 20","textPreview":"11 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":11,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":11,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":11,"id":"8","role":"title","text":"求解方法设计：从快速启发式到精确优化基准","textPreview":"求解方法设计：从快速启发式到精确优化基准","textChars":20,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":11,"id":"9","role":"subtitle","text":"本文比较了三类算法，并为每类算法构造 nominal 与 robust 两个版本。","textPreview":"本文比较了三类算法，并为每类算法构造 nominal 与 robust 两个版本。","textChars":41,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":11,"id":"10","role":"card panel: Greedy","shapeType":"roundRect","bbox":[84,410,355.3333333333333,194]}
+{"kind":"shape","slide":11,"id":"11","role":"card accent: Greedy","shapeType":"rect","bbox":[84,410,8,194]}
+{"kind":"shape","slide":11,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,434,54,54]}
+{"kind":"shape","slide":11,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,463,6,12]}
+{"kind":"shape","slide":11,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,455,6,20]}
+{"kind":"shape","slide":11,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,448,6,27]}
+{"kind":"textbox","slide":11,"id":"16","role":"card label","text":"Greedy","textPreview":"Greedy","textChars":6,"textLines":1,"bbox":[172,432,247.33333333333331,28]}
+{"kind":"textbox","slide":11,"id":"17","role":"card body: Greedy","text":"基于单位资源价值密度的启发式方法，优点是速度极快、实现简单、可解释性强。","textPreview":"基于单位资源价值密度的启发式方法，优点是速度极快、实现简单、可解释性强。","textChars":36,"textLines":1,"bbox":[108,496,307.3333333333333,86]}
+{"kind":"shape","slide":11,"id":"18","role":"card panel: DP-Lagrangian","shapeType":"roundRect","bbox":[463.3333333333333,410,355.3333333333333,194]}
+{"kind":"shape","slide":11,"id":"19","role":"card accent: DP-Lagrangian","shapeType":"rect","bbox":[463.3333333333333,410,8,194]}
+{"kind":"shape","slide":11,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,434,54,54]}
+{"kind":"shape","slide":11,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,452,10,10]}
+{"kind":"shape","slide":11,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,461,10,10]}
+{"kind":"shape","slide":11,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,459,19,3]}
+{"kind":"textbox","slide":11,"id":"24","role":"card label","text":"DP-Lagrangian","textPreview":"DP-Lagrangian","textChars":13,"textLines":1,"bbox":[551.3333333333333,432,247.33333333333331,28]}
+{"kind":"textbox","slide":11,"id":"25","role":"card body: DP-Lagrangian","text":"通过拉格朗日松弛和动态规划取得效果与效率之间的折中。","textPreview":"通过拉格朗日松弛和动态规划取得效果与效率之间的折中。","textChars":26,"textLines":1,"bbox":[487.3333333333333,496,307.3333333333333,86]}
+{"kind":"shape","slide":11,"id":"26","role":"card panel: CP-SAT","shapeType":"roundRect","bbox":[842.6666666666666,410,355.3333333333333,194]}
+{"kind":"shape","slide":11,"id":"27","role":"card accent: CP-SAT","shapeType":"rect","bbox":[842.6666666666666,410,8,194]}
+{"kind":"shape","slide":11,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,434,54,54]}
+{"kind":"shape","slide":11,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,449,26,13]}
+{"kind":"shape","slide":11,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,458,26,13]}
+{"kind":"shape","slide":11,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,467,20,10]}
+{"kind":"textbox","slide":11,"id":"32","role":"card label","text":"CP-SAT","textPreview":"CP-SAT","textChars":6,"textLines":1,"bbox":[930.6666666666666,432,247.33333333333331,28]}
+{"kind":"textbox","slide":11,"id":"33","role":"card body: CP-SAT","text":"利用 OR-Tools\n的整数规划求解能力作为精确优化基准，并和 robust\n版本一起比较。","textPreview":"利用 OR-Tools | 的整数规划求解能力作为精确优化基准，并和 robust | 版本一起比较。","textChars":47,"textLines":3,"bbox":[866.6666666666666,496,307.3333333333333,86]}
+{"kind":"image","slide":12,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":12,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":12,"id":"4","role":"header","text":"EXPERIMENT","textPreview":"EXPERIMENT","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":12,"id":"5","role":"header","text":"12 / 20","textPreview":"12 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":12,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":12,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":12,"id":"8","role":"title","text":"滚动窗口实验设计","textPreview":"滚动窗口实验设计","textChars":8,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":12,"id":"9","role":"subtitle","text":"rolling-window 设计用于避免结果依赖某一段特定时间区间。","textPreview":"rolling-window 设计用于避免结果依赖某一段特定时间区间。","textChars":35,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":12,"id":"10","role":"card panel: 时间结构","shapeType":"roundRect","bbox":[84,410,355.3333333333333,194]}
+{"kind":"shape","slide":12,"id":"11","role":"card accent: 时间结构","shapeType":"rect","bbox":[84,410,8,194]}
+{"kind":"shape","slide":12,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,434,54,54]}
+{"kind":"shape","slide":12,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,463,6,12]}
+{"kind":"shape","slide":12,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,455,6,20]}
+{"kind":"shape","slide":12,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,448,6,27]}
+{"kind":"textbox","slide":12,"id":"16","role":"card label","text":"时间结构","textPreview":"时间结构","textChars":4,"textLines":1,"bbox":[172,432,247.33333333333331,28]}
+{"kind":"textbox","slide":12,"id":"17","role":"card body: 时间结构","text":"每次用前 8 周作为训练窗口，再用后 1\n周作为测试窗口，并按周向前滚动。","textPreview":"每次用前 8 周作为训练窗口，再用后 1 | 周作为测试窗口，并按周向前滚动。","textChars":37,"textLines":2,"bbox":[108,496,307.3333333333333,86]}
+{"kind":"shape","slide":12,"id":"18","role":"card panel: 场景设计","shapeType":"roundRect","bbox":[463.3333333333333,410,355.3333333333333,194]}
+{"kind":"shape","slide":12,"id":"19","role":"card accent: 场景设计","shapeType":"rect","bbox":[463.3333333333333,410,8,194]}
+{"kind":"shape","slide":12,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,434,54,54]}
+{"kind":"shape","slide":12,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,452,10,10]}
+{"kind":"shape","slide":12,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,461,10,10]}
+{"kind":"shape","slide":12,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,459,19,3]}
+{"kind":"textbox","slide":12,"id":"24","role":"card label","text":"场景设计","textPreview":"场景设计","textChars":4,"textLines":1,"bbox":[551.3333333333333,432,247.33333333333331,28]}
+{"kind":"textbox","slide":12,"id":"25","role":"card body: 场景设计","text":"baseline、high_volatility 与\nlarge_scale\n三类场景分别对应标准、高波动和大规模紧容量环境。","textPreview":"baseline、high_volatility 与 | large_scale | 三类场景分别对应标准、高波动和大规模紧容量环境。","textChars":63,"textLines":3,"bbox":[487.3333333333333,496,307.3333333333333,86]}
+{"kind":"shape","slide":12,"id":"26","role":"card panel: 比较目标","shapeType":"roundRect","bbox":[842.6666666666666,410,355.3333333333333,194]}
+{"kind":"shape","slide":12,"id":"27","role":"card accent: 比较目标","shapeType":"rect","bbox":[842.6666666666666,410,8,194]}
+{"kind":"shape","slide":12,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,434,54,54]}
+{"kind":"shape","slide":12,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,449,26,13]}
+{"kind":"shape","slide":12,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,458,26,13]}
+{"kind":"shape","slide":12,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,467,20,10]}
+{"kind":"textbox","slide":12,"id":"32","role":"card label","text":"比较目标","textPreview":"比较目标","textChars":4,"textLines":1,"bbox":[930.6666666666666,432,247.33333333333331,28]}
+{"kind":"textbox","slide":12,"id":"33","role":"card body: 比较目标","text":"对比不同算法在多个窗口上的服务水平、缺货风险和运行时间，而不是只看单次结果。","textPreview":"对比不同算法在多个窗口上的服务水平、缺货风险和运行时间，而不是只看单次结果。","textChars":38,"textLines":1,"bbox":[866.6666666666666,496,307.3333333333333,86]}
+{"kind":"image","slide":13,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":13,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":13,"id":"4","role":"header","text":"DATA","textPreview":"DATA","textChars":4,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":13,"id":"5","role":"header","text":"13 / 20","textPreview":"13 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":13,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":13,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":13,"id":"8","role":"title","text":"数据来源与清洗规则","textPreview":"数据来源与清洗规则","textChars":9,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":13,"id":"9","role":"subtitle","text":"原始数据来自真实 scanner transaction records，并经过多步清洗后进入建模流程。","textPreview":"原始数据来自真实 scanner transaction records，并经过多步清洗后进入建模流程。","textChars":52,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":13,"id":"10","role":"card panel: 原始字段","shapeType":"roundRect","bbox":[84,410,355.3333333333333,194]}
+{"kind":"shape","slide":13,"id":"11","role":"card accent: 原始字段","shapeType":"rect","bbox":[84,410,8,194]}
+{"kind":"shape","slide":13,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,434,54,54]}
+{"kind":"shape","slide":13,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,463,6,12]}
+{"kind":"shape","slide":13,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,455,6,20]}
+{"kind":"shape","slide":13,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,448,6,27]}
+{"kind":"textbox","slide":13,"id":"16","role":"card label","text":"原始字段","textPreview":"原始字段","textChars":4,"textLines":1,"bbox":[172,432,247.33333333333331,28]}
+{"kind":"textbox","slide":13,"id":"17","role":"card body: 原始字段","text":"日期、订单号、SKU、销量、销售额和品类构成了研究的核心交易信息。","textPreview":"日期、订单号、SKU、销量、销售额和品类构成了研究的核心交易信息。","textChars":33,"textLines":1,"bbox":[108,496,307.3333333333333,86]}
+{"kind":"shape","slide":13,"id":"18","role":"card panel: 清洗步骤","shapeType":"roundRect","bbox":[463.3333333333333,410,355.3333333333333,194]}
+{"kind":"shape","slide":13,"id":"19","role":"card accent: 清洗步骤","shapeType":"rect","bbox":[463.3333333333333,410,8,194]}
+{"kind":"shape","slide":13,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,434,54,54]}
+{"kind":"shape","slide":13,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,452,10,10]}
+{"kind":"shape","slide":13,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,461,10,10]}
+{"kind":"shape","slide":13,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,459,19,3]}
+{"kind":"textbox","slide":13,"id":"24","role":"card label","text":"清洗步骤","textPreview":"清洗步骤","textChars":4,"textLines":1,"bbox":[551.3333333333333,432,247.33333333333331,28]}
+{"kind":"textbox","slide":13,"id":"25","role":"card body: 清洗步骤","text":"去除非整数销量、异常大单和异常单价记录，尽量保证订单和\nSKU 级统计的可靠性。","textPreview":"去除非整数销量、异常大单和异常单价记录，尽量保证订单和 | SKU 级统计的可靠性。","textChars":40,"textLines":2,"bbox":[487.3333333333333,496,307.3333333333333,86]}
+{"kind":"shape","slide":13,"id":"26","role":"card panel: 样本筛选","shapeType":"roundRect","bbox":[842.6666666666666,410,355.3333333333333,194]}
+{"kind":"shape","slide":13,"id":"27","role":"card accent: 样本筛选","shapeType":"rect","bbox":[842.6666666666666,410,8,194]}
+{"kind":"shape","slide":13,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,434,54,54]}
+{"kind":"shape","slide":13,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,449,26,13]}
+{"kind":"shape","slide":13,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,458,26,13]}
+{"kind":"shape","slide":13,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,467,20,10]}
+{"kind":"textbox","slide":13,"id":"32","role":"card label","text":"样本筛选","textPreview":"样本筛选","textChars":4,"textLines":1,"bbox":[930.6666666666666,432,247.33333333333331,28]}
+{"kind":"textbox","slide":13,"id":"33","role":"card body: 样本筛选","text":"以活跃天数不少于 30 天、总销量不少于 50\n件筛出稳定候选 SKU，再构造日需求矩阵。","textPreview":"以活跃天数不少于 30 天、总销量不少于 50 | 件筛出稳定候选 SKU，再构造日需求矩阵。","textChars":45,"textLines":2,"bbox":[866.6666666666666,496,307.3333333333333,86]}
+{"kind":"image","slide":14,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":14,"id":"3","role":"metrics contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":14,"id":"4","role":"header","text":"DATA FACTS","textPreview":"DATA FACTS","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":14,"id":"5","role":"header","text":"14 / 20","textPreview":"14 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":14,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":14,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":14,"id":"8","role":"title","text":"描述性统计：需求异质性和订单结构特征都很明显","textPreview":"描述性统计：需求异质性和订单结构特征都很明显","textChars":22,"textLines":1,"bbox":[64,86,700,142]}
+{"kind":"textbox","slide":14,"id":"9","role":"subtitle","text":"数据本身已经说明，仅靠简单均值补货或单一 fill rate 指标并不足够。","textPreview":"数据本身已经说明，仅靠简单均值补货或单一 fill rate 指标并不足够。","textChars":38,"textLines":1,"bbox":[66,234,700,70]}
+{"kind":"shape","slide":14,"id":"10","role":"metric panel: 原始交易行","shapeType":"roundRect","bbox":[92,404,330,174]}
+{"kind":"shape","slide":14,"id":"11","role":"metric accent: 原始交易行","shapeType":"rect","bbox":[92,404,330,7]}
+{"kind":"textbox","slide":14,"id":"12","role":"metric value","text":"131,706","textPreview":"131,706","textChars":7,"textLines":1,"bbox":[114,428,286,54]}
+{"kind":"textbox","slide":14,"id":"13","role":"metric label","text":"原始交易行","textPreview":"原始交易行","textChars":5,"textLines":1,"bbox":[116,486,282,38]}
+{"kind":"textbox","slide":14,"id":"14","role":"metric note","text":"scanner_data.csv 中的记录数量","textPreview":"scanner_data.csv 中的记录数量","textChars":23,"textLines":1,"bbox":[116,536,282,22]}
+{"kind":"shape","slide":14,"id":"15","role":"metric panel: 订单数","shapeType":"roundRect","bbox":[462,404,330,174]}
+{"kind":"shape","slide":14,"id":"16","role":"metric accent: 订单数","shapeType":"rect","bbox":[462,404,330,7]}
+{"kind":"textbox","slide":14,"id":"17","role":"metric value","text":"64,682","textPreview":"64,682","textChars":6,"textLines":1,"bbox":[484,428,286,54]}
+{"kind":"textbox","slide":14,"id":"18","role":"metric label","text":"订单数","textPreview":"订单数","textChars":3,"textLines":1,"bbox":[486,486,282,38]}
+{"kind":"textbox","slide":14,"id":"19","role":"metric note","text":"原始订单号唯一值数量，覆盖完整年度交易","textPreview":"原始订单号唯一值数量，覆盖完整年度交易","textChars":19,"textLines":1,"bbox":[486,536,282,22]}
+{"kind":"shape","slide":14,"id":"20","role":"metric panel: 全年样本","shapeType":"roundRect","bbox":[832,404,330,174]}
+{"kind":"shape","slide":14,"id":"21","role":"metric accent: 全年样本","shapeType":"rect","bbox":[832,404,330,7]}
+{"kind":"textbox","slide":14,"id":"22","role":"metric value","text":"2016","textPreview":"2016","textChars":4,"textLines":1,"bbox":[854,428,286,54]}
+{"kind":"textbox","slide":14,"id":"23","role":"metric label","text":"全年样本","textPreview":"全年样本","textChars":4,"textLines":1,"bbox":[856,486,282,38]}
+{"kind":"textbox","slide":14,"id":"24","role":"metric note","text":"2016-01-02 至 2016-12-31，共 365 天需求轨迹","textPreview":"2016-01-02 至 2016-12-31，共 365 天需求轨迹","textChars":35,"textLines":1,"bbox":[856,536,282,22]}
+{"kind":"image","slide":15,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":15,"id":"3","role":"metrics contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":15,"id":"4","role":"header","text":"RESULTS","textPreview":"RESULTS","textChars":7,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":15,"id":"5","role":"header","text":"15 / 20","textPreview":"15 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":15,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":15,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":15,"id":"8","role":"title","text":"主结果：多场景下算法表现存在明显差异","textPreview":"主结果：多场景下算法表现存在明显差异","textChars":18,"textLines":1,"bbox":[64,86,700,142]}
+{"kind":"textbox","slide":15,"id":"9","role":"subtitle","text":"从 rolling-window 汇总结果看，DP-Lagrangian 通常带来更高 LFR，而 Greedy 速度最快。","textPreview":"从 rolling-window 汇总结果看，DP-Lagrangian 通常带来更高 LFR，而 Greedy 速度最快。","textChars":62,"textLines":1,"bbox":[66,234,700,70]}
+{"kind":"shape","slide":15,"id":"10","role":"metric panel: 最佳 baseline LFR","shapeType":"roundRect","bbox":[92,404,330,174]}
+{"kind":"shape","slide":15,"id":"11","role":"metric accent: 最佳 baseline LFR","shapeType":"rect","bbox":[92,404,330,7]}
+{"kind":"textbox","slide":15,"id":"12","role":"metric value","text":"0.204","textPreview":"0.204","textChars":5,"textLines":1,"bbox":[114,428,286,54]}
+{"kind":"textbox","slide":15,"id":"13","role":"metric label","text":"最佳 baseline LFR","textPreview":"最佳 baseline LFR","textChars":15,"textLines":1,"bbox":[116,486,282,38]}
+{"kind":"textbox","slide":15,"id":"14","role":"metric note","text":"baseline 场景下 DP-Lagrangian 的平均 lfr_mean","textPreview":"baseline 场景下 DP-Lagrangian 的平均 lfr_mean","textChars":39,"textLines":1,"bbox":[116,536,282,22]}
+{"kind":"shape","slide":15,"id":"15","role":"metric panel: DP 平均耗时","shapeType":"roundRect","bbox":[462,404,330,174]}
+{"kind":"shape","slide":15,"id":"16","role":"metric accent: DP 平均耗时","shapeType":"rect","bbox":[462,404,330,7]}
+{"kind":"textbox","slide":15,"id":"17","role":"metric value","text":"17.136s","textPreview":"17.136s","textChars":7,"textLines":1,"bbox":[484,428,286,54]}
+{"kind":"textbox","slide":15,"id":"18","role":"metric label","text":"DP 平均耗时","textPreview":"DP 平均耗时","textChars":7,"textLines":1,"bbox":[486,486,282,38]}
+{"kind":"textbox","slide":15,"id":"19","role":"metric note","text":"baseline 场景下 DP-Lagrangian 的 time_mean","textPreview":"baseline 场景下 DP-Lagrangian 的 time_mean","textChars":38,"textLines":1,"bbox":[486,536,282,22]}
+{"kind":"shape","slide":15,"id":"20","role":"metric panel: Greedy 平均耗时","shapeType":"roundRect","bbox":[832,404,330,174]}
+{"kind":"shape","slide":15,"id":"21","role":"metric accent: Greedy 平均耗时","shapeType":"rect","bbox":[832,404,330,7]}
+{"kind":"textbox","slide":15,"id":"22","role":"metric value","text":"0.0004s","textPreview":"0.0004s","textChars":7,"textLines":1,"bbox":[854,428,286,54]}
+{"kind":"textbox","slide":15,"id":"23","role":"metric label","text":"Greedy 平均耗时","textPreview":"Greedy 平均耗时","textChars":11,"textLines":1,"bbox":[856,486,282,38]}
+{"kind":"textbox","slide":15,"id":"24","role":"metric note","text":"baseline 场景下 Greedy 的 time_mean，体现极高速度优势","textPreview":"baseline 场景下 Greedy 的 time_mean，体现极高速度优势","textChars":40,"textLines":1,"bbox":[856,536,282,22]}
+{"kind":"image","slide":16,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":16,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":16,"id":"4","role":"header","text":"REPLAY","textPreview":"REPLAY","textChars":6,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":16,"id":"5","role":"header","text":"16 / 20","textPreview":"16 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":16,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":16,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":16,"id":"8","role":"title","text":"订单回放评估：聚合指标与真实履约体验并不相同","textPreview":"订单回放评估：聚合指标与真实履约体验并不相同","textChars":22,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":16,"id":"9","role":"subtitle","text":"将优化方案放回真实订单序列后，可以看到整单逻辑比聚合 line fill rate 更严苛。","textPreview":"将优化方案放回真实订单序列后，可以看到整单逻辑比聚合 line fill rate 更严苛。","textChars":46,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":16,"id":"10","role":"card panel: 整单回放","shapeType":"roundRect","bbox":[84,410,355.3333333333333,194]}
+{"kind":"shape","slide":16,"id":"11","role":"card accent: 整单回放","shapeType":"rect","bbox":[84,410,8,194]}
+{"kind":"shape","slide":16,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,434,54,54]}
+{"kind":"shape","slide":16,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,463,6,12]}
+{"kind":"shape","slide":16,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,455,6,20]}
+{"kind":"shape","slide":16,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,448,6,27]}
+{"kind":"textbox","slide":16,"id":"16","role":"card label","text":"整单回放","textPreview":"整单回放","textChars":4,"textLines":1,"bbox":[172,432,247.33333333333331,28]}
+{"kind":"textbox","slide":16,"id":"17","role":"card body: 整单回放","text":"baseline 下表现最好的\ndp_nominal，basket_lfr_mean\n仅为 0.0416，basket_ofr_mean 为\n0.0754。","textPreview":"baseline 下表现最好的 | dp_nominal，basket_lfr_mean | 仅为 0.0416，basket_ofr_mean 为 | 0.0754。","textChars":78,"textLines":4,"bbox":[108,496,307.3333333333333,86]}
+{"kind":"shape","slide":16,"id":"18","role":"card panel: 部分履约","shapeType":"roundRect","bbox":[463.3333333333333,410,355.3333333333333,194]}
+{"kind":"shape","slide":16,"id":"19","role":"card accent: 部分履约","shapeType":"rect","bbox":[463.3333333333333,410,8,194]}
+{"kind":"shape","slide":16,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,434,54,54]}
+{"kind":"shape","slide":16,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,452,10,10]}
+{"kind":"shape","slide":16,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,461,10,10]}
+{"kind":"shape","slide":16,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,459,19,3]}
+{"kind":"textbox","slide":16,"id":"24","role":"card label","text":"部分履约","textPreview":"部分履约","textChars":4,"textLines":1,"bbox":[551.3333333333333,432,247.33333333333331,28]}
+{"kind":"textbox","slide":16,"id":"25","role":"card body: 部分履约","text":"同一方案在 partial replay 下的\nbasket_lfr_mean 上升到\n0.1211，说明履约规则对指标有显著影响。","textPreview":"同一方案在 partial replay 下的 | basket_lfr_mean 上升到 | 0.1211，说明履约规则对指标有显著影响。","textChars":66,"textLines":3,"bbox":[487.3333333333333,496,307.3333333333333,86]}
+{"kind":"shape","slide":16,"id":"26","role":"card panel: 核心含义","shapeType":"roundRect","bbox":[842.6666666666666,410,355.3333333333333,194]}
+{"kind":"shape","slide":16,"id":"27","role":"card accent: 核心含义","shapeType":"rect","bbox":[842.6666666666666,410,8,194]}
+{"kind":"shape","slide":16,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,434,54,54]}
+{"kind":"shape","slide":16,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,449,26,13]}
+{"kind":"shape","slide":16,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,458,26,13]}
+{"kind":"shape","slide":16,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,467,20,10]}
+{"kind":"textbox","slide":16,"id":"32","role":"card label","text":"核心含义","textPreview":"核心含义","textChars":4,"textLines":1,"bbox":[930.6666666666666,432,247.33333333333331,28]}
+{"kind":"textbox","slide":16,"id":"33","role":"card body: 核心含义","text":"若只看聚合 line fill\nrate，可能高估真实订单层面的履约能力，尤其在多\nSKU 订单环境下更明显。","textPreview":"若只看聚合 line fill | rate，可能高估真实订单层面的履约能力，尤其在多 | SKU 订单环境下更明显。","textChars":55,"textLines":3,"bbox":[866.6666666666666,496,307.3333333333333,86]}
+{"kind":"image","slide":17,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":17,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":17,"id":"4","role":"header","text":"BENCHMARK","textPreview":"BENCHMARK","textChars":9,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":17,"id":"5","role":"header","text":"17 / 20","textPreview":"17 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":17,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":17,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":17,"id":"8","role":"title","text":"文献基线比较：hybrid_v2 在共同窗口上提供了重要参照","textPreview":"文献基线比较：hybrid_v2 在共同窗口上提供了重要参照","textChars":30,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":17,"id":"9","role":"subtitle","text":"benchmark 比较说明联合优化框架与替代感知基线在不同评估口径下各有侧重。","textPreview":"benchmark 比较说明联合优化框架与替代感知基线在不同评估口径下各有侧重。","textChars":40,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":17,"id":"10","role":"card panel: whole-order","shapeType":"roundRect","bbox":[84,410,355.3333333333333,194]}
+{"kind":"shape","slide":17,"id":"11","role":"card accent: whole-order","shapeType":"rect","bbox":[84,410,8,194]}
+{"kind":"shape","slide":17,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,434,54,54]}
+{"kind":"shape","slide":17,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,463,6,12]}
+{"kind":"shape","slide":17,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,455,6,20]}
+{"kind":"shape","slide":17,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,448,6,27]}
+{"kind":"textbox","slide":17,"id":"16","role":"card label","text":"whole-order","textPreview":"whole-order","textChars":11,"textLines":1,"bbox":[172,432,247.33333333333331,28]}
+{"kind":"textbox","slide":17,"id":"17","role":"card body: whole-order","text":"baseline benchmark\n中，hybrid_v2 的\nbasket_lfr_mean 为\n0.0632，basket_ofr_mean 为\n0.1071，高于主模型方案。","textPreview":"baseline benchmark | 中，hybrid_v2 的 | basket_lfr_mean 为 | 0.0632，basket_ofr_mean 为 | 0.1071，高于主模型方案。","textChars":91,"textLines":5,"bbox":[108,496,307.3333333333333,86]}
+{"kind":"shape","slide":17,"id":"18","role":"card panel: partial-order","shapeType":"roundRect","bbox":[463.3333333333333,410,355.3333333333333,194]}
+{"kind":"shape","slide":17,"id":"19","role":"card accent: partial-order","shapeType":"rect","bbox":[463.3333333333333,410,8,194]}
+{"kind":"shape","slide":17,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,434,54,54]}
+{"kind":"shape","slide":17,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,452,10,10]}
+{"kind":"shape","slide":17,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,461,10,10]}
+{"kind":"shape","slide":17,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,459,19,3]}
+{"kind":"textbox","slide":17,"id":"24","role":"card label","text":"partial-order","textPreview":"partial-order","textChars":13,"textLines":1,"bbox":[551.3333333333333,432,247.33333333333331,28]}
+{"kind":"textbox","slide":17,"id":"25","role":"card body: partial-order","text":"在 partial benchmark\n中，hybrid_v2 的\nbasket_lfr_mean 为\n0.1244，仍略高于 baseline 下的主模型\nreplay 表现。","textPreview":"在 partial benchmark | 中，hybrid_v2 的 | basket_lfr_mean 为 | 0.1244，仍略高于 baseline 下的主模型 | replay 表现。","textChars":89,"textLines":5,"bbox":[487.3333333333333,496,307.3333333333333,86]}
+{"kind":"shape","slide":17,"id":"26","role":"card panel: 解释角度","shapeType":"roundRect","bbox":[842.6666666666666,410,355.3333333333333,194]}
+{"kind":"shape","slide":17,"id":"27","role":"card accent: 解释角度","shapeType":"rect","bbox":[842.6666666666666,410,8,194]}
+{"kind":"shape","slide":17,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,434,54,54]}
+{"kind":"shape","slide":17,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,449,26,13]}
+{"kind":"shape","slide":17,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,458,26,13]}
+{"kind":"shape","slide":17,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,467,20,10]}
+{"kind":"textbox","slide":17,"id":"32","role":"card label","text":"解释角度","textPreview":"解释角度","textChars":4,"textLines":1,"bbox":[930.6666666666666,432,247.33333333333331,28]}
+{"kind":"textbox","slide":17,"id":"33","role":"card body: 解释角度","text":"hybrid_v2 显式引入替代感知\nsizing，提示前置仓问题中需求替代结构值得进一步深入建模。","textPreview":"hybrid_v2 显式引入替代感知 | sizing，提示前置仓问题中需求替代结构值得进一步深入建模。","textChars":50,"textLines":2,"bbox":[866.6666666666666,496,307.3333333333333,86]}
+{"kind":"image","slide":18,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":18,"id":"3","role":"metrics contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":18,"id":"4","role":"header","text":"DISCUSSION","textPreview":"DISCUSSION","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":18,"id":"5","role":"header","text":"18 / 20","textPreview":"18 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":18,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":18,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":18,"id":"8","role":"title","text":"结果讨论：几项关键发现如何理解","textPreview":"结果讨论：几项关键发现如何理解","textChars":15,"textLines":1,"bbox":[64,86,700,142]}
+{"kind":"textbox","slide":18,"id":"9","role":"subtitle","text":"结果不是简单地说明某个算法最好，而是揭示了不同指标和场景下的权衡关系。","textPreview":"结果不是简单地说明某个算法最好，而是揭示了不同指标和场景下的权衡关系。","textChars":35,"textLines":1,"bbox":[66,234,700,70]}
+{"kind":"shape","slide":18,"id":"10","role":"metric panel: 联合优化有效","shapeType":"roundRect","bbox":[92,404,330,174]}
+{"kind":"shape","slide":18,"id":"11","role":"metric accent: 联合优化有效","shapeType":"rect","bbox":[92,404,330,7]}
+{"kind":"textbox","slide":18,"id":"12","role":"metric value","text":"发现 1","textPreview":"发现 1","textChars":4,"textLines":1,"bbox":[114,428,286,54]}
+{"kind":"textbox","slide":18,"id":"13","role":"metric label","text":"联合优化有效","textPreview":"联合优化有效","textChars":6,"textLines":1,"bbox":[116,486,282,38]}
+{"kind":"textbox","slide":18,"id":"14","role":"metric note","text":"相比直觉式分开决策，统一建模能系统处理容量与成本约束","textPreview":"相比直觉式分开决策，统一建模能系统处理容量与成本约束","textChars":26,"textLines":1,"bbox":[116,536,282,22]}
+{"kind":"shape","slide":18,"id":"15","role":"metric panel: 鲁棒性有场景价值","shapeType":"roundRect","bbox":[462,404,330,174]}
+{"kind":"shape","slide":18,"id":"16","role":"metric accent: 鲁棒性有场景价值","shapeType":"rect","bbox":[462,404,330,7]}
+{"kind":"textbox","slide":18,"id":"17","role":"metric value","text":"发现 2","textPreview":"发现 2","textChars":4,"textLines":1,"bbox":[484,428,286,54]}
+{"kind":"textbox","slide":18,"id":"18","role":"metric label","text":"鲁棒性有场景价值","textPreview":"鲁棒性有场景价值","textChars":8,"textLines":1,"bbox":[486,486,282,38]}
+{"kind":"textbox","slide":18,"id":"19","role":"metric note","text":"高波动环境下 robust 思路更强调防错，而不是盲目追求均值最优","textPreview":"高波动环境下 robust 思路更强调防错，而不是盲目追求均值最优","textChars":33,"textLines":1,"bbox":[486,536,282,22]}
+{"kind":"shape","slide":18,"id":"20","role":"metric panel: 回放不可省略","shapeType":"roundRect","bbox":[832,404,330,174]}
+{"kind":"shape","slide":18,"id":"21","role":"metric accent: 回放不可省略","shapeType":"rect","bbox":[832,404,330,7]}
+{"kind":"textbox","slide":18,"id":"22","role":"metric value","text":"发现 3","textPreview":"发现 3","textChars":4,"textLines":1,"bbox":[854,428,286,54]}
+{"kind":"textbox","slide":18,"id":"23","role":"metric label","text":"回放不可省略","textPreview":"回放不可省略","textChars":6,"textLines":1,"bbox":[856,486,282,38]}
+{"kind":"textbox","slide":18,"id":"24","role":"metric note","text":"真实订单级 replay 揭示了聚合指标无法直接替代的履约差异","textPreview":"真实订单级 replay 揭示了聚合指标无法直接替代的履约差异","textChars":31,"textLines":1,"bbox":[856,536,282,22]}
+{"kind":"image","slide":19,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":19,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":19,"id":"4","role":"header","text":"IMPLICATIONS","textPreview":"IMPLICATIONS","textChars":12,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":19,"id":"5","role":"header","text":"19 / 20","textPreview":"19 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":19,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":19,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":19,"id":"8","role":"title","text":"管理启示：前置仓优化不能只看 SKU 数量或平均需求","textPreview":"管理启示：前置仓优化不能只看 SKU 数量或平均需求","textChars":26,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":19,"id":"9","role":"subtitle","text":"研究结果可以转化为选品、备货和评估机制上的操作建议。","textPreview":"研究结果可以转化为选品、备货和评估机制上的操作建议。","textChars":26,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":19,"id":"10","role":"card panel: 结构优化","shapeType":"roundRect","bbox":[84,410,355.3333333333333,194]}
+{"kind":"shape","slide":19,"id":"11","role":"card accent: 结构优化","shapeType":"rect","bbox":[84,410,8,194]}
+{"kind":"shape","slide":19,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,434,54,54]}
+{"kind":"shape","slide":19,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,463,6,12]}
+{"kind":"shape","slide":19,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,455,6,20]}
+{"kind":"shape","slide":19,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,448,6,27]}
+{"kind":"textbox","slide":19,"id":"16","role":"card label","text":"结构优化","textPreview":"结构优化","textChars":4,"textLines":1,"bbox":[172,432,247.33333333333331,28]}
+{"kind":"textbox","slide":19,"id":"17","role":"card body: 结构优化","text":"前置仓不应追求 SKU 越多越好，而应重视容量约束下的\nassortment 结构与库存深度配置。","textPreview":"前置仓不应追求 SKU 越多越好，而应重视容量约束下的 | assortment 结构与库存深度配置。","textChars":49,"textLines":2,"bbox":[108,496,307.3333333333333,86]}
+{"kind":"shape","slide":19,"id":"18","role":"card panel: 稳健备货","shapeType":"roundRect","bbox":[463.3333333333333,410,355.3333333333333,194]}
+{"kind":"shape","slide":19,"id":"19","role":"card accent: 稳健备货","shapeType":"rect","bbox":[463.3333333333333,410,8,194]}
+{"kind":"shape","slide":19,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,434,54,54]}
+{"kind":"shape","slide":19,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,452,10,10]}
+{"kind":"shape","slide":19,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,461,10,10]}
+{"kind":"shape","slide":19,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,459,19,3]}
+{"kind":"textbox","slide":19,"id":"24","role":"card label","text":"稳健备货","textPreview":"稳健备货","textChars":4,"textLines":1,"bbox":[551.3333333333333,432,247.33333333333331,28]}
+{"kind":"textbox","slide":19,"id":"25","role":"card body: 稳健备货","text":"高波动 SKU\n不宜仅按均值需求配置库存，应考虑更稳健的安全偏移或鲁棒策略。","textPreview":"高波动 SKU | 不宜仅按均值需求配置库存，应考虑更稳健的安全偏移或鲁棒策略。","textChars":38,"textLines":2,"bbox":[487.3333333333333,496,307.3333333333333,86]}
+{"kind":"shape","slide":19,"id":"26","role":"card panel: 评估升级","shapeType":"roundRect","bbox":[842.6666666666666,410,355.3333333333333,194]}
+{"kind":"shape","slide":19,"id":"27","role":"card accent: 评估升级","shapeType":"rect","bbox":[842.6666666666666,410,8,194]}
+{"kind":"shape","slide":19,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,434,54,54]}
+{"kind":"shape","slide":19,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,449,26,13]}
+{"kind":"shape","slide":19,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,458,26,13]}
+{"kind":"shape","slide":19,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,467,20,10]}
+{"kind":"textbox","slide":19,"id":"32","role":"card label","text":"评估升级","textPreview":"评估升级","textChars":4,"textLines":1,"bbox":[930.6666666666666,432,247.33333333333331,28]}
+{"kind":"textbox","slide":19,"id":"33","role":"card body: 评估升级","text":"企业评估前置仓方案时不能只看 line fill\nrate，还应纳入整单满足率和订单 replay。","textPreview":"企业评估前置仓方案时不能只看 line fill | rate，还应纳入整单满足率和订单 replay。","textChars":50,"textLines":2,"bbox":[866.6666666666666,496,307.3333333333333,86]}
+{"kind":"image","slide":20,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":20,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":20,"id":"4","role":"header","text":"CLOSING","textPreview":"CLOSING","textChars":7,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":20,"id":"5","role":"header","text":"20 / 20","textPreview":"20 / 20","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":20,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":20,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":20,"id":"8","role":"title","text":"研究结论、局限与未来工作","textPreview":"研究结论、局限与未来工作","textChars":12,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":20,"id":"9","role":"subtitle","text":"本文建立了一个可解释、可运行、可回到订单现实检验的前置仓联合优化框架。","textPreview":"本文建立了一个可解释、可运行、可回到订单现实检验的前置仓联合优化框架。","textChars":35,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":20,"id":"10","role":"card panel: 研究结论","shapeType":"roundRect","bbox":[84,410,355.3333333333333,194]}
+{"kind":"shape","slide":20,"id":"11","role":"card accent: 研究结论","shapeType":"rect","bbox":[84,410,8,194]}
+{"kind":"shape","slide":20,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,434,54,54]}
+{"kind":"shape","slide":20,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,463,6,12]}
+{"kind":"shape","slide":20,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,455,6,20]}
+{"kind":"shape","slide":20,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,448,6,27]}
+{"kind":"textbox","slide":20,"id":"16","role":"card label","text":"研究结论","textPreview":"研究结论","textChars":4,"textLines":1,"bbox":[172,432,247.33333333333331,28]}
+{"kind":"textbox","slide":20,"id":"17","role":"card body: 研究结论","text":"项目完成了从数据处理、联合建模、算法比较到订单回放和\nbenchmark 的完整闭环。","textPreview":"项目完成了从数据处理、联合建模、算法比较到订单回放和 | benchmark 的完整闭环。","textChars":43,"textLines":2,"bbox":[108,496,307.3333333333333,86]}
+{"kind":"shape","slide":20,"id":"18","role":"card panel: 研究局限","shapeType":"roundRect","bbox":[463.3333333333333,410,355.3333333333333,194]}
+{"kind":"shape","slide":20,"id":"19","role":"card accent: 研究局限","shapeType":"rect","bbox":[463.3333333333333,410,8,194]}
+{"kind":"shape","slide":20,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,434,54,54]}
+{"kind":"shape","slide":20,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,452,10,10]}
+{"kind":"shape","slide":20,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,461,10,10]}
+{"kind":"shape","slide":20,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,459,19,3]}
+{"kind":"textbox","slide":20,"id":"24","role":"card label","text":"研究局限","textPreview":"研究局限","textChars":4,"textLines":1,"bbox":[551.3333333333333,432,247.33333333333331,28]}
+{"kind":"textbox","slide":20,"id":"25","role":"card body: 研究局限","text":"替代效应仍采用近似构造，部分成本和容量参数依赖代理值，外生变量尚未纳入。","textPreview":"替代效应仍采用近似构造，部分成本和容量参数依赖代理值，外生变量尚未纳入。","textChars":36,"textLines":1,"bbox":[487.3333333333333,496,307.3333333333333,86]}
+{"kind":"shape","slide":20,"id":"26","role":"card panel: 未来工作","shapeType":"roundRect","bbox":[842.6666666666666,410,355.3333333333333,194]}
+{"kind":"shape","slide":20,"id":"27","role":"card accent: 未来工作","shapeType":"rect","bbox":[842.6666666666666,410,8,194]}
+{"kind":"shape","slide":20,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,434,54,54]}
+{"kind":"shape","slide":20,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,449,26,13]}
+{"kind":"shape","slide":20,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,458,26,13]}
+{"kind":"shape","slide":20,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,467,20,10]}
+{"kind":"textbox","slide":20,"id":"32","role":"card label","text":"未来工作","textPreview":"未来工作","textChars":4,"textLines":1,"bbox":[930.6666666666666,432,247.33333333333331,28]}
+{"kind":"textbox","slide":20,"id":"33","role":"card body: 未来工作","text":"可进一步扩展到动态补货、多仓协同、显式消费者替代模型和在线学习决策。","textPreview":"可进一步扩展到动态补货、多仓协同、显式消费者替代模型和在线学习决策。","textChars":34,"textLines":1,"bbox":[866.6666666666666,496,307.3333333333333,86]}
