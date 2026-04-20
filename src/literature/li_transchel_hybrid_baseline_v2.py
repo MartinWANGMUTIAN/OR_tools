@@ -6,12 +6,6 @@ Li (2024) + Transchel et al. (2022) hybrid baseline v2
 ------------------------------------------------------
 Upgraded version with a simplified EXOGENOUS substitution matrix.
 
-Compared with v1:
-1) keeps Li-style assortment proxy stage
-2) replaces independent inventory sizing with a substitution-aware local search
-3) adds a quality/price-distance-based substitution matrix over selected SKUs
-4) evaluates substitution-aware expected sales/profit during sizing
-
 Still NOT an exact reproduction of either paper:
 - Li et al. needs basket-level orders; we only have daily SKU totals
 - Transchel et al. needs endogenous utility-based substitution matrices for all
